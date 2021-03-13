@@ -1,0 +1,27 @@
+/* font-family: 'Amatic SC', cursive; */
+
+html,
+body {
+  height: 100%;
+  font-size: 1rem;
+}
+
+.gradient {
+  background: rgb(229, 230, 237);
+  background: linear-gradient(90deg, rgba(229, 230, 237, 1) 28%, rgba(237, 237, 247, 1) 96%);
+}
+
+.page-header {
+  padding-top: 5rem;
+}
+
+h1 {
+  font-family: "Amatic SC", cursive;
+  font-weight: bold;
+  font-size: 6rem;
+}
+h2 {
+  font-family: "Amatic SC", cursive;
+  font-weight: bold;
+  font-size: 4rem;
+}

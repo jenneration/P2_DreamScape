@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS dreamer;
+CREATE DATABASE dreamer;
