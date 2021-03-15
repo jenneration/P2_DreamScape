@@ -3,8 +3,8 @@
 <section class="container wrapper" id="read">
     <div class="wrap">
 
-        {{#each dreams}}
-        <div class="dream-page">
+        {{!-- {{#each dreams}} --}}
+        <div class="dream-page" data-id="{{this.id}}">
             <h1>{{title}}</h1>
             <button class="btn bg-warning">Edit</button>
             <ul class="dream-info">
@@ -13,9 +13,9 @@
                 <li class="read-body">{{description}}</li>
             </ul>
         </div>
-        {{else}}
+        {{!-- {{else}} --}}
         <p>Gotta enter a dream first!!!</p>
-        {{/each}}
+        {{!-- {{/each}} --}}
 
 
 

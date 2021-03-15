@@ -31,6 +31,7 @@ const html = require("./routes/html-routes.js");
 
 // app.use(api);
 app.use(html);
+app.use(api);
 
 //INITIAL TEST - routes
 // app.get("/", (req, res) => res.send("INDEX TEST"));

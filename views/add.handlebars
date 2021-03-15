@@ -10,7 +10,7 @@
     </div>
     {{/each}}
 
-    <form action="/dreams/add" method="POST">
+    <form action="/api/dreams" method="POST">
       <div class="input-group">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" class="input-box"
@@ -23,10 +23,10 @@
       </div>
       <div class="input-group">
         <label for="description">Dream</label>
-        <textarea name="body" id="body" class="input-box" placeholder="It was a long, dark road..."
+        <textarea name="description" id="description" class="input-box" placeholder="It was a long, dark road..."
           rows="10">{{description}}</textarea>
       </div>
-      <input type="submit" value="Add Dream" class="btn btn-reverse bg-warning">
+      <input type="submit" value="Add Dream" id="btn-add"class="btn btn-reverse bg-warning">
     </form>
   </div>
 </section>

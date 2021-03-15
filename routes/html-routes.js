@@ -9,35 +9,57 @@ const db = require("../models");
 
 // Render views
 router.get("/", (req, res) => res.render("dash"));
-// router.get("/all", (req, res) => res.render("all"));
-// router.get("/add", (req, res) => res.render("add"));
+router.get("/all", (req, res) => res.redirect("/api/dreams"));
+router.get("/add", (req, res) => res.render("add"));
 router.get("/update", (req, res) => res.render("update"));
 router.get("/read", (req, res) => res.render("read"));
 
-// #1 Get all dreams
-// router.get("/all", (req, res) => {
-// db.Dream.findAll().then((data) => res.render("all", { data } ))
-
-// .catch((err) => console.log("Get all error: " + error));
-// });
 
 
 
-// GET ALL DREAMS
-router.get("/all", (req, res) => 
+// #1 Get all dreams - OK
+router.get("/api/dreams", (req, res) => 
 db.Dreams.findAll()
 .then((data) => {
-  // console.log(data);
+ // console.log(data);
   const dreams = data.map((object) => {
     return object.dataValues;
   });
-  res.render('all', { dreams });
-  console.log("These are dreams " + dreams)
+  res.render('all', { dreams: JSON.parse(JSON.stringify(dreams))});
+  console.log("These are dreams " + JSON.parse(JSON.stringify(dreams)));
 })
 .catch((err) => console.log(err))
-
 );
 
+
+// #2 CREATE a new dream - OK
+router.post("/api/dreams", (req, res) => {
+  console.log(req.body);
+  db.Dreams.create(req.body)
+  .then((dbDreams) => {
+    console.log("After THEN");
+    //Redirect to "all page"
+    // res.json(dbDreams)
+    res.redirect("/all")
+  })
+  .catch(error => console.log(error));
+})
+
+
+
+// // GET ONE DREAM BY ID
+// router.get("/api/dreams/:id", (req, res) => {
+//   db.Dreams.findOne ({
+//     where: {
+//       id: req.params.id,
+//     },
+//   }).then((dbDreams) => res.json(dbDreams));
+// });
+
+module.exports = router;
+
+
+  
 
 
 
@@ -107,7 +129,6 @@ db.Dreams.findAll()
 
 
 
-// });
 
 
 
@@ -120,4 +141,3 @@ db.Dreams.findAll()
 
 
 
-module.exports = router;

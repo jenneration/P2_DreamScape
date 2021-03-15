@@ -5,7 +5,7 @@
     <h1>All Dreams</h1>
     
 {{#each dreams}}
-    <div class="card card-jg">
+    <div class="card card-jg" data-id="{{id}}">
       <div class="card-body">
         <h5 class="card-title">{{title}}</h5>
       </div>
@@ -14,7 +14,7 @@
         <li class="list-group-item">{{createdAt}}</li>
       </ul>
       <div class="card-body">
-        <a href="/read" class="card-link">Read/Edit</a>
+        <a href="/update/:id" class="card-link">Read/Edit</a>
       </div>
     </div>
 {{else}}
