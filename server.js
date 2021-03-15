@@ -19,7 +19,7 @@ var passport = require("./config/passport");
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

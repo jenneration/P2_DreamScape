@@ -1,5 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Dream = sequelize.define("Dream", {
+
+  const Dreams = sequelize.define("Dreams", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -7,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         len: [1],
       },
     },
-    body: {
+    description: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
@@ -19,5 +20,5 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
     },
   });
-  return Dream;
+  return Dreams;
 };

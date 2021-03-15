@@ -2,7 +2,7 @@
 
 <section class="container wrapper" id="add">
   <div class="form-wrap">
-    <h1>Add Your Dream</h1>
+    <h1>Edit</h1>
     {{!-- Display errors --}}
     {{#each errors}}
     <div class="error">
@@ -17,17 +17,16 @@
           placeholder="eg. Small Wordpress website, React developer" maxlength="100" value={{title}}>
       </div>
       <div class="input-group">
-        <label for="technolovisual visualvisuales">Tags/Themes</label>
-        <input type="text" name="tags" id="tags" class="input-box" placeholder="chase, dog, night"
+        <label for="technologies">Tags/Themes</label>
+        <input type="text" name="technologies" id="technologies" class="input-box" placeholder="chase, dog, night"
           maxlength="100" value={{tags}}>
       </div>
       <div class="input-group">
         <label for="description">Dream</label>
-        <textarea name="body" id="body" class="input-box" placeholder="It was a long, dark road..."
+        <textarea name="description" id="description" class="input-box" placeholder="It was a long, dark road..."
           rows="10">{{description}}</textarea>
       </div>
-      <input type="submit" value="Add Dream" class="btn btn-reverse bg-warning">
+      <input type="update" value="update dream" class="btn btn-reverse bg-warning">
     </form>
   </div>
 </section>
-

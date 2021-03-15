@@ -1,43 +1,36 @@
 {{>nav}}
 
-  <section id="gigs" class="container wrapper">
-    <div class="content-wrap">
+<section class="container wrapper">
+  <div class="content-wrap">
     <h1>All Dreams</h1>
-
-{{#each dream}}
-    <div class="gig">
-      <h3>{{title}}</h3>
-      <p>{{description}}</p>
-      <ul>
-        <li>Budget: {{budget}}</li>
-      </ul>
-      <div class="tech">
-        <small>Tags/Themes <span>{{tags}}</span></small>
+    
+{{#each dreams}}
+    <div class="card card-jg">
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
       </div>
-        <li><a href="mailto:{{contact_email}}" class="btn btn-reverse">Apply Now</a></li>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{tags}}</li>
+        <li class="list-group-item">{{createdAt}}</li>
+      </ul>
+      <div class="card-body">
+        <a href="/read" class="card-link">Read/Edit</a>
+      </div>
     </div>
 {{else}}
 <p>No dreams yet</p>
 {{/each}}
-    </div>
+</section>
 
-<div class="card">
-  <img src="..." class="card-img-top" alt="...">
+{{!-- TEST TEXT --}}
+{{!-- <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Dream Title</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">Tags go here</li>
+    <li class="list-group-item">Create date goes here</li>
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
-
-
-
-  </section>
+    <a href="/read" class="card-link">Read/Edit</a>
+  </div> --}}

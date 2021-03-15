@@ -1,0 +1,36 @@
+{{>nav}}
+
+<section class="container wrapper" id="read">
+    <div class="wrap">
+
+        {{#each dreams}}
+        <div class="dream-page">
+            <h1>{{title}}</h1>
+            <button class="btn bg-warning">Edit</button>
+            <ul class="dream-info">
+                <li class="read-group">{{createdAt}}</li>
+                <li class="read-group">{{tags}}</li>
+                <li class="read-body">{{description}}</li>
+            </ul>
+        </div>
+        {{else}}
+        <p>Gotta enter a dream first!!!</p>
+        {{/each}}
+
+
+
+{{!-- Dummy text --}}
+        <div class="dream-page">
+            <h1>Bush Dogs</h1>
+            <button class="btn bg-warning">Edit</button>
+            <ul class="dream-info">
+                <li class="read-group">March 10, 2021</li>
+
+                <li class="read-group">dogs, chase, full moon</li>
+
+                <li class="read-body">This is a dummy div: The bluest night sky...quiet. The bush dogs lay in wait...</li>
+            </ul>
+
+        </div>
+    </div>
+</section>
