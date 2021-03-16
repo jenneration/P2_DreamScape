@@ -9,54 +9,78 @@ const db = require("../models");
 
 // Render views
 router.get("/", (req, res) => res.render("dash"));
-router.get("/all", (req, res) => res.redirect("/api/dreams"));
+router.get("/all", (req, res) => res.redirect("api/dreams"));
 router.get("/add", (req, res) => res.render("add"));
 router.get("/update", (req, res) => res.render("update"));
-router.get("/read", (req, res) => res.render("read"));
+router.get("/read", (req, res) => res.redirect("read"));
+
+module.exports = router;
 
 
 
 
-// #1 Get all dreams - OK
-router.get("/api/dreams", (req, res) => 
-db.Dreams.findAll()
-.then((data) => {
- // console.log(data);
-  const dreams = data.map((object) => {
-    return object.dataValues;
-  });
-  res.render('all', { dreams: JSON.parse(JSON.stringify(dreams))});
-  console.log("These are dreams " + JSON.parse(JSON.stringify(dreams)));
-})
-.catch((err) => console.log(err))
-);
-
-
-// #2 CREATE a new dream - OK
-router.post("/api/dreams", (req, res) => {
-  console.log(req.body);
-  db.Dreams.create(req.body)
-  .then((dbDreams) => {
-    console.log("After THEN");
-    //Redirect to "all page"
-    // res.json(dbDreams)
-    res.redirect("/all")
-  })
-  .catch(error => console.log(error));
-})
 
 
 
-// // GET ONE DREAM BY ID
+
+
+
+
+
+
+
+
+
+
 // router.get("/api/dreams/:id", (req, res) => {
 //   db.Dreams.findOne ({
 //     where: {
 //       id: req.params.id,
 //     },
-//   }).then((dbDreams) => res.json(dbDreams));
+//   }).then((res) => res.json(res));
+//   console.log(res)
+  
+//   // Direct to "read"
+//   res.send(data);
+//   console.log("this is dbDreams" + res)
 // });
 
-module.exports = router;
+// router.get("/api/dreams/:id", (req, res) => 
+// db.Dreams.findOne({
+//   where: {
+//     id: req.params.id,
+//   }
+
+// })
+// .then((data) => {
+//  console.log(data);
+//  dreams = data;
+
+
+
+
+ 
+
+// router.get("/api/dreams/:id", (req, res) => 
+// db.Dreams.findOne({
+//   where: {
+//     id: req.params.id,
+//   }
+// })
+// .then((data) => {
+//  // console.log(data);
+//   const dreams = data.map((object) => {
+//     return object.dataValues;
+//   });
+//   res.render('read', { dreams: JSON.parse(JSON.stringify(dreams))});
+//   // console.log("These are dreams" + (JSON.stringify(dreams)));
+// })
+// .catch((err) => console.log(err))
+// );
+
+
+
+
 
 
   

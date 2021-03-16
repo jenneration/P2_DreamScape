@@ -1,25 +1,27 @@
 {{>nav}}
 
+{{#each dream}}
 <section class="container wrapper" id="read">
     <div class="wrap">
+        <button type="button" data-dream="{{id}}" id="btn-edit" class="btn btn-warning">Edit Dream</button>
 
-        {{!-- {{#each dreams}} --}}
-        <div class="dream-page" data-id="{{this.id}}">
-            <h1>{{title}}</h1>
+
+        <div class="dream-page" data-dream="">
+            <h1 id="title">{{title}}</h1>
             <button class="btn bg-warning">Edit</button>
-            <ul class="dream-info">
-                <li class="read-group">{{createdAt}}</li>
-                <li class="read-group">{{tags}}</li>
-                <li class="read-body">{{description}}</li>
-            </ul>
+            <div class="dream-info">
+                <p id="createdAt" class="read-group">{{createdAt}}</p>
+                <p id="tags" class="read-group">{{tags}}</p>
+                <p id="description" class="read-body">{{description}}</p>
+            </div>
         </div>
-        {{!-- {{else}} --}}
-        <p>Gotta enter a dream first!!!</p>
-        {{!-- {{/each}} --}}
+{{else}}
+<p>Write down some dreams!!!!</p>
+{{/each}}
 
 
 
-{{!-- Dummy text --}}
+        {{!-- Dummy text
         <div class="dream-page">
             <h1>Bush Dogs</h1>
             <button class="btn bg-warning">Edit</button>
@@ -28,9 +30,10 @@
 
                 <li class="read-group">dogs, chase, full moon</li>
 
-                <li class="read-body">This is a dummy div: The bluest night sky...quiet. The bush dogs lay in wait...</li>
+                <li class="read-body">This is a dummy div: The bluest night sky...quiet. The bush dogs lay in wait...
+                </li>
             </ul>
 
         </div>
     </div>
-</section>
+</section> --}}
