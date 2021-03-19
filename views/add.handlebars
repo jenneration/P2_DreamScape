@@ -1,14 +1,10 @@
+<div class="section">
 {{>nav}}
-
+</div>
 <section class="container wrapper" id="add">
   <div class="form-wrap">
     <h1>Add Your Dream</h1>
-    {{!-- Display errors --}}
-    {{#each errors}}
-    <div class="error">
-      <p>{{text}}</p>
-    </div>
-    {{/each}}
+
 
     <form action="/api/dreams" method="POST">
       <div class="input-group">
@@ -30,4 +26,5 @@
     </form>
   </div>
 </section>
+
 

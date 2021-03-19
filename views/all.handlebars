@@ -1,11 +1,13 @@
+<div class="section">
 {{>nav}}
+</div>
 
 <section class="container wrapper">
   <div class="content-wrap">
     <h1>All Dreams</h1>
     
 {{#each dreams}}
-    <div class="card card-jg" id="all-card" data-dream={{id}}>
+    <div class="card card-jg" id="all-card" data-dream="{{id}}">
       <div class="card-body">
         <h5 id="title" class="card-title" >{{title}}</h5>
       </div>
@@ -15,7 +17,7 @@
       </ul>
       <div class="card-body">
         <button type="button" data-dream="{{id}}" id="btn-read" class="btn btn-warning">Read/Edit</button>
-        <button type="button" data-dream="{{id}}" id="btn-delete" class="btn btn-warning">Delete</button>
+
       </div>
     </div>
 {{else}}

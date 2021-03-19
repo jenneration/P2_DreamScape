@@ -1,20 +1,20 @@
-const express = require("express");
-const router = express.Router();
-const db = require("../models");
+// const express = require("express");
+// const router = express.Router();
+// const db = require("../models");
 
 
-//Routes
+// //Routes
 
-// RUN PRE-HANDLEBAR TESTS
+// // RUN PRE-HANDLEBAR TESTS
 
-// Render views
-router.get("/", (req, res) => res.render("dash"));
-router.get("/all", (req, res) => res.redirect("api/dreams"));
-router.get("/add", (req, res) => res.render("add"));
-router.get("/update", (req, res) => res.render("update"));
-router.get("/read", (req, res) => res.redirect("read"));
+// // Render views
+// router.get("/", (req, res) => res.render("dash"));
+// router.get("/all", (req, res) => res.redirect("api/dreams"));
+// router.get("/add", (req, res) => res.render("add"));
+// router.get("/update", (req, res) => res.render("update"));
+// router.get("/read", (req, res) => res.render("read"));
 
-module.exports = router;
+// module.exports = router;
 
 
 

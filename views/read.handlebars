@@ -1,6 +1,8 @@
+<div class="section">
 {{>nav}}
+</div>
 
-{{#each dream}}
+ 
 <section class="container wrapper" id="read">
     <div class="wrap">
         <button type="button" data-dream="{{id}}" id="btn-edit" class="btn btn-warning">Edit Dream</button>
@@ -14,14 +16,12 @@
                 <p id="tags" class="read-group">{{tags}}</p>
                 <p id="description" class="read-body">{{description}}</p>
             </div>
-        </div>
-{{else}}
+
 <p>Write down some dreams!!!!</p>
-{{/each}}
 
 
 
-        {{!-- Dummy text
+
         <div class="dream-page">
             <h1>Bush Dogs</h1>
             <button class="btn bg-warning">Edit</button>
@@ -36,4 +36,4 @@
 
         </div>
     </div>
-</section> --}}
+</section>
