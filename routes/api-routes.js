@@ -2,6 +2,7 @@ const express = require("express");
 const db = require("../models");
 const router = express.Router();
 
+let id;
 // Render views
 router.get("/", (req, res) => res.render("dash"));
 router.get("/all", (req, res) => res.redirect("/api/dreams"));
@@ -68,6 +69,24 @@ router.post("/api/dreams", (req, res) => {
 // })
 
 // #3 READ ONE DREAM
+// router.get("/api/read/:id", (req, res) => {
+//   db.Dreams.findOne(
+//     {
+//       where: {
+//         id: req.params.id,
+//       },
+//     })
+//   .then((data) => {
+//    // console.log(data);
+//     const dream = data.dataValues;
+//     console.log(dream)
+//     res.redirect("/read", { dream: JSON.parse(JSON.stringify(dream))});
+//   })
+//   .catch((err) => console.log(err))
+//   });
+
+
+//PRE TEST ROUTE - data working + no console errors
 router.get("/api/read/:id", (req, res) => {
   db.Dreams.findOne(
     {
@@ -79,10 +98,16 @@ router.get("/api/read/:id", (req, res) => {
    // console.log(data);
     const dream = data.dataValues;
     console.log(dream)
-    res.render("read", { dream: JSON.parse(JSON.stringify(dream))});
+    res.render('read', { dream: JSON.parse(JSON.stringify(dream))});
+   // res.render("read", {dream: dream});
   })
   .catch((err) => console.log(err))
   });
+
+
+
+
+
 
 //TEST  
 // router.get("/api/read/:id", (req, res) => {

@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
         const id = e.target.getAttribute("data-dream");
         console.log(id);
-        //const dream =  { readDream };
 
         fetch(`/api/read/${id}`, {
           method: "GET",
@@ -44,17 +43,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
             "Content-Type": "application/json",
           },
        })
-          .then((response) => { console.log(response) })
-         // console.log("fetch")
-          .then(data => {
-            
-            dream = data;
-// console.log(data);
-            // title = data.title,
-            //   createdAt = data.createdAt,
-            //   tags = data.tags,
-            //   description = data.description
+          .then((response) => { console.log(response);
+           window.location = `/api/read/${id}`;
           })
+
+
+          // .then(data => {
+          //   console.log(data)
+          //   dream = data;
+
+          //   // title = data.title,
+          //   //   createdAt = data.createdAt,
+          //   //   tags = data.tags,
+          //   //   description = data.description
+          // })
           .catch(error => console.log(error));
 
       });
@@ -72,7 +74,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 //   // Reload the page so the user can see the new quote
 //   if (response.ok) {
 //     console.log("WORKED!!!!!!!!");
-//     response.render("read", { newDream } );
+//     response.render("read", { dream } );
 //   } else {
 //     alert('something went wrong!');
 //   }
