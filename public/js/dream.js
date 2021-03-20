@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", (e) => {
   if (e) {
     console.log("DOM loaded");
@@ -8,9 +6,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
   // Get references to html elements
   // For create, read
   // let buttonAdd = document.getElementById("btn-add");
-  let title = document.getElementById("title");
-  let tags = document.getElementById("tags");
-  let description = document.getElementById("description");
+  let titleInput = document.getElementById("title");
+  let tagsInput = document.getElementById("tags");
+  let descriptionInput = document.getElementById("description");
   //For read
   let createdAt = document.getElementById("createdAt");
   let dataDream;
@@ -28,7 +26,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   // #3 READ: get one dream by ID
   if (btnRead) {
     btnRead.forEach((button) => {
-
       button.addEventListener("click", (e) => {
         e.preventDefault();
         console.log("CLICK");
@@ -42,50 +39,63 @@ document.addEventListener("DOMContentLoaded", (e) => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-       })
-          .then((response) => { console.log(response);
-           window.location = `/api/read/${id}`;
+        })
+          .then((response) => {
+            console.log(response);
+            window.location = `/api/read/${id}`;
           })
-
-
-          // .then(data => {
-          //   console.log(data)
-          //   dream = data;
-
-          //   // title = data.title,
-          //   //   createdAt = data.createdAt,
-          //   //   tags = data.tags,
-          //   //   description = data.description
-          // })
-          .catch(error => console.log(error));
-
+          .catch((error) => console.log(error));
       });
-
     });
+  }
+
+  // #4 Redirect to edit/delete page
+  const btnEdit = document.querySelector("#btn-edit");
+
+  btnEdit.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("CLICK");
+    console.log(e);
+
+    const id = e.target.getAttribute("data-dream");
+    console.log(id);
+
+    fetch(`/api/edit/${id}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        console.log(response);
+        window.location.href = `/api/edit/${id}`;
+      })
+      .catch((error) => console.log(error));
+  });
+
+  // #5 Edit/Update a dream and redirect to "All dreams" page
+
+  const btnUpdate = document.querySelector("#btn-update");
+  btnUpdate.addEventListener("click", updateDream);
+
+  const currentDream = {
+    title: titleInput.value.trim(),
+    tags: tagsInput.value.trim(),
+    description: descriptionInput.value(),
+    id: e.target.getAttribute("data-dream")
   };
 
-
-
-
-
-//   body: JSON.stringify(readDream),
-// }).then((response) => {
-//   // Check that the response is all good
-//   // Reload the page so the user can see the new quote
-//   if (response.ok) {
-//     console.log("WORKED!!!!!!!!");
-//     response.render("read", { dream } );
-//   } else {
-//     alert('something went wrong!');
-//   }
-// });
-// });
-// });
-// }
+  const updateDream = (currentDream) => {
+    fetch("/api/dreams", {
+      method: "PUT",
+      headers: {
+        "Content-Type": " application/json",
+      },
+      body: JSON.stringify(currentDream),
+    }).then((response) => console.log(response));
+  };
 
 
   //DOCUMENT END TAG
 });
-
-
-

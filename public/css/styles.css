@@ -9,11 +9,11 @@ body {
 }
 
 .container {
-  background-color: grey;
+  background-color: rgb(211, 201, 201);
 }
 .wrapper {
   margin-top: 80px;
-  background-color: pink;
+  background-color: rgb(227, 198, 203);
 }
 .gradient {
   background: rgb(229, 230, 237);
