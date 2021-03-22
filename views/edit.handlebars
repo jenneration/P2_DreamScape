@@ -1,33 +1,34 @@
-<div class="section">
-{{>nav}}
+<div>
+  {{>nav}}
 </div>
-<section class="container wrapper" id="add">
-  <div class="form-wrap">
-    <h1>Make some changes...</h1>
 
-
-    <form class="cms">
-      {{!-- <div class="input-group">
-        <label for="title">Title</label>
-        <textarea name="title" id="title" class="text-box">{{dream.title}}</textarea> --}}
-      </div>
-      <div class="input-group">
-        <label for="technolovisual visualvisuales">Title</label>
-        <textarea name="tags" id="tags" class="input-box textbox"
-          maxlength="100" >{{dream.title}}</textarea>
-      </div>
-      <div class="input-group">
-        <label for="technolovisual visualvisuales">Tags/Themes</label>
-        <textarea name="tags" id="tags" class="input-box textbox"
-          maxlength="100" >{{dream.tags}}</textarea>
-      </div>
-      <div class="input-group">
-        <label for="description">Dream</label>
-        <textarea name="description" id="description" class="input-box areabox" 
-          rows="15">{{dream.description}}</textarea>
-      </div>
-      <button type="submit" value="update" id="btn-update" data-dream="{{dream.id}}"class="btn btnd bg-warning">Submit</button>
-      <button type="submit" value="delete" id="btn-delete" data-dream="{{dream.id}}"class="btn btnd bg-warning">Delete</button>
-    </form>
+<div class="container-md wrapper" id="add">
+  <h1>Make some changes...</h1>
+  <div class="row form-wrap">
+    <div class="col-12">
+      <form class="cms">
+        {{!-- <div class="input-group">
+          <label for="title">Title</label>
+          <textarea name="title" id="title" class="text-box">{{dream.title}}</textarea> --}}
+        </div>
+        <div class="input-group">
+          <label for="technolovisual visualvisuales">Title</label>
+          <textarea name="tags" id="tags" class="input-box textbox" maxlength="100">{{dream.title}}</textarea>
+        </div>
+        <div class="input-group">
+          <label for="technolovisual visualvisuales">Tags/Themes</label>
+          <textarea name="tags" id="tags" class="input-box textbox" maxlength="100">{{dream.tags}}</textarea>
+        </div>
+        <div class="input-group">
+          <label for="description">Dream</label>
+          <textarea name="description" id="description" class="input-box areabox"
+            rows="15">{{dream.description}}</textarea>
+        </div>
+        <button type="submit" value="update" id="btn-update" data-dream="{{dream.id}}"
+          class="btn btnd bg-warning">Submit</button>
+        <button type="submit" value="delete" id="btn-delete" data-dream="{{dream.id}}"
+          class="btn btnd bg-warning">Delete</button>
+      </form>
+    </div>
   </div>
-</section>
+</div>

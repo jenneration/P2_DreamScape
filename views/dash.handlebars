@@ -1,13 +1,76 @@
-<div class="section">
-{{>nav}}
+<div>
+    {{>nav}}
 </div>
 
-<div class="container">
 
-<section class="container wrapper" id="dash">
-    <div class="wrap">
-        <h1>This is the dashboard page</h1>
 
+    <div class="container-md wrapper" id="dash">
+        <div class="wrap">
+            <h1>This is the dashboard page</h1>
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
-</section>
-</div>
+
+<script>let myChart = document.getElementById("myChart").getContext("2d");
+
+    //*****Global Options
+    //Chart.defaults.global.defaultFontFamily = "",
+    //Chart.defaults.global.defaultFontSize = "",
+    //Chart.defaults.global.defaultFontColor = "",
+
+    let massPopChart = new Chart(myChart, {
+        type: "pie",  //bar, horizontal, pie, line, doughnut, radar, polar
+        data: {
+            labels: ["Boston", "Worcester", "Lowell", "Cambridge"],
+            datasets: [{
+                label: "Population",
+                data: [
+                    11111,
+                    22222,
+                    33333,
+                    444444,
+                    555555
+                ],
+                //backgroundColor: "green"
+                backgroundColor: [
+                    "rgba(255, 99, 132, 0.6",
+                    "rgba(54, 162, 235, 0.6"
+                ],
+                borderWidth: 3,
+                borderColor: "#777",
+                hoverBorderWidth: "#000",
+                hoverBorderColor: "#000"
+            }]
+        },
+        options: { //these can be altered/deleted
+            title: {
+                display: true, //or false for other charts
+                text: "Title",
+                fontSize: 25
+            },
+            legend: {
+                display: true,
+                position: "right", //can change
+                labels: {
+                    fontColor: "#000"
+                }
+            },
+            layout: {
+                padding: {
+                    left: 50,
+                    right: 0,
+                    bottom:0,
+                    top: 0
+                }
+            },
+            tooltips: {
+                enabled: true // or true
+            }
+        }
+
+    });
+
+
+
+
+</script>
