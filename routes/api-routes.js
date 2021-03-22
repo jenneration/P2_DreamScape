@@ -2,23 +2,22 @@ const express = require("express");
 const db = require("../models");
 const router = express.Router();
 
-let id;
-// Render views
+
 router.get("/", (req, res) => res.render("dash"));
 router.get("/all", (req, res) => res.redirect("/api/dreams"));
 router.get("/add", (req, res) => res.render("add"));
 router.get("/edit", (req, res) => res.render("edit"));
 router.get("/read", (req, res) => res.render("read"));
 
-
 // #1 VIEW ALL dreams AFTER CREATED or NAV - OK
 router.get("/api/dreams", (req, res) => {
   db.Dreams.findAll({})
     .then((data) => {
-      const dreams = data.map((object) => {
+      let dreams = data.map((object) => {
         return object.dataValues;
       });
-      console.log("#1 View all dreams works!")
+      console.log(dreams)
+      dreams = dreams.reverse();
       res.render('all', { dreams: JSON.parse(JSON.stringify(dreams)) });
     })
     .catch((err) => console.log(err))

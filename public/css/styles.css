@@ -15,6 +15,10 @@ body {
   margin-top: 80px;
   background-color: rgb(227, 198, 203);
 }
+.textbox {
+  resize: none;
+}
+
 .gradient {
   background: rgb(229, 230, 237);
   background: linear-gradient(90deg, rgba(229, 230, 237, 1) 28%, rgba(237, 237, 247, 1) 96%);

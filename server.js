@@ -1,5 +1,5 @@
 const express = require("express");
-const handlebars = require("express-handlebars");
+const expbs = require("express-handlebars");
 const db = require("./models");
 const path = require("path");
 
@@ -24,20 +24,21 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use(express.static("files"));
 
 // Handlebars
-app.engine("handlebars", handlebars({ defaultLayout: "main" }));
+const hbs = expbs.create({
+  defaultLayout: "main",
+});
+
+
+app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 
 //Require routes
 const api = require("./routes/api-routes.js");
-const html = require("./routes/html-routes.js");
-
-// Middleware for routes
-// app.use(html);
+// const html = require("./routes/html-routes.js");
 app.use(api);
+// app.use(html);
 
-//INITIAL TEST - routes
-// app.get("/", (req, res) => res.send("INDEX TEST"));
 
 //Sync sequelize models then start Express app
 db.sequelize.sync({ force: false }).then(() => {
