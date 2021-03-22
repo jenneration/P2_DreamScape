@@ -6,22 +6,23 @@
     <h1>Make some changes...</h1>
 
 
-    <form action="/api/dreams" method="POST">
+    <form class="cms">
       <div class="input-group">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" class="input-box" maxlength="100" value="{{dream.title}}">
+        <input type="text" name="title" id="title" class="input-box" maxlength="100" placeholder="{{dream.title}}">{{dream.title}}</input>
       </div>
       <div class="input-group">
         <label for="technolovisual visualvisuales">Tags/Themes</label>
         <input type="text" name="tags" id="tags" class="input-box"
-          maxlength="100" value="{{dream.tags}}">
+          maxlength="100" placeholder="{{dream.tags}}">
       </div>
       <div class="input-group">
         <label for="description">Dream</label>
         <textarea name="description" id="description" class="input-box" 
           rows="15">{{dream.description}}</textarea>
       </div>
-      <input type="submit" value="Add Dream" id="btn-update" data-dream="{{dream.id}}"class="btn bg-warning">
+      <button type="submit" value="update" id="btn-update" data-dream="{{dream.id}}"class="btn btnd bg-warning">Submit</button>
+      <button type="submit" value="delete" id="btn-delete" data-dream="{{dream.id}}"class="btn btnd bg-warning">Delete</button>
     </form>
   </div>
 </section>

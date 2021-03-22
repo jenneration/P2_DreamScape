@@ -7,6 +7,8 @@
 
 
     <form action="/api/dreams" method="POST">
+    {{!-- <form class="cms"> --}}
+    <form id="add">
       <div class="input-group">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" class="input-box"
@@ -22,7 +24,7 @@
         <textarea name="description" id="description" class="input-box" placeholder="It was a long, dark road..."
           rows="10">{{description}}</textarea>
       </div>
-      <input type="submit" value="Add Dream" id="btn-add" class="btn bg-warning">
+      <button type="submit" value="Add Dream" id="btn-add" class="btn bg-warning">Submit</button>
     </form>
   </div>
 </section>
