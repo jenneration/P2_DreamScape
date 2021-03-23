@@ -9,10 +9,45 @@ router.get("/add", (req, res) => res.render("add"));
 router.get("/edit", (req, res) => res.render("edit"));
 router.get("/read", (req, res) => res.render("read"));
 
+
+//ADD NEW DREAM
+// router.put("/api/dreams/:id", (req, res) => {
+//   console.log(req.body);
+//   db.Dreams.update(req.body, {
+//     where: {
+//       id: req.params.id,
+//     }
+//   })
+//     .then((data) => {
+//       const updateddream = data.dataValues
+//       console.log(updateddream)
+//       console.log("#5 Update Dream Works!");
+//       res.redirect("/all")
+//     })
+//     .catch(error => console.log(error));
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // #1 VIEW ALL dreams AFTER CREATED or NAV - OK
 router.get("/api/dreams", (req, res) => {
+  
   db.Dreams.findAll({})
     .then((data) => {
+      console.log(data);
       let dreams = data.map((object) => {
         return object.dataValues;
       });

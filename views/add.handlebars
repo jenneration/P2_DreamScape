@@ -1,4 +1,6 @@
- {{>nav}}
+<div>
+  {{>nav}}å
+</div>
 
 <div class="container-md wrapper" id="add">
   <h1>Add Your Dream</h1>
@@ -23,10 +25,36 @@
                 rows="10">{{description}}</textarea>
             </div>
             <button type="submit" value="Add Dream" id="btn-add" class="btn bg-warning">Submit</button>
-          </form>
     </div>
-    <div class="col-sm">
-      <h3>Some stats</h3>
+    <label>Dream Stats<span class="optional">
+    <br>This is optional</span></label>
+
+    <select class="form-select" name="mood" id="mood" aria-label="Default select example">
+      <option selected>Mood</option>
+      <option value="happy">Happy</option>
+      <option value="sad">Sad</option>
+      <option value="neutral">Neutral</option>
+      <option value="frightened">Frightened</option>
+      <option value="angry">Angry</option>
+      <option value="anxious">Anxious/Stressed</option>
+    </select>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="lucid" value="true" id="lucid">
+      <label class="form-check-label" for="flexRadioDefault1">Lucid Dream?</label>
     </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="nightmare" value="true" id="nightmare">
+      <label class="form-check-label" for="flexRadioDefault1">Nightmare?</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="recdream" value="true" id="recdream">
+      <label class="form-check-label" for="flexRadioDefault1">Recurring dream?</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="rectheme" value="true" id="rectheme">
+      <label class="form-check-label" for="flexRadioDefault1">Recurring Theme?</label>
+    </div>
+    </form>
   </div>
+</div>
 </div>

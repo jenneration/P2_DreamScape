@@ -1,13 +1,27 @@
-
 document.addEventListener("DOMContentLoaded", (e) => {
   if (e) {
     console.log("DOM loaded");
   }
 
+  //TEST TO CHECK CHECKBOX VALUES - future reference
+  const cb = document.querySelector("#lucid");
+  const getvalue = () => {
+    const result = cb.value;
+    alert(result); // on
+  };
+  cb.addEventListener("click", getvalue);
+
+
   //Get references to html elements
   let titleInput = document.getElementById("title");
   let tagsInput = document.getElementById("tags");
   let descriptionInput = document.getElementById("description");
+
+  const lucid = document.getElementById("lucid");
+  const nightmare = document.getElementById("nightmare");
+  const recdream = document.getElementById("recdream");
+  const rectheme = document.getElementById("rectheme");
+
 
   const btnRead = document.querySelectorAll("#btn-read");
 
@@ -62,8 +76,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
         })
         .catch((error) => console.log(error));
     });
-  };
-
+  }
 
   // # UPDATE
   const btnUpdate = document.querySelector("#btn-update");
@@ -86,34 +99,25 @@ document.addEventListener("DOMContentLoaded", (e) => {
       description: descriptionInput.value.trim(),
     };
     console.log(currentDream);
-    let id = e.target.getAttribute("data-dream")
-    updateDream(currentDream, id)
+    let id = e.target.getAttribute("data-dream");
+    updateDream(currentDream, id);
   });
 
-
   // #6 DELETE
-  const deleteBtn = document.querySelector("#btn-delete")
+  const deleteBtn = document.querySelector("#btn-delete");
   const deleteDream = (id) => {
-
     console.log("dataset.dream");
     fetch(`/api/dreams/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-    })
-      .then(() => console.log("DELETED"));
+    }).then(() => console.log("DELETED"));
   };
-
 
   deleteBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    let id = e.target.getAttribute("data-dream")
+    let id = e.target.getAttribute("data-dream");
     deleteDream(id);
   });
-
-
 });
-
-
-
