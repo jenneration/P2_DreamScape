@@ -110,11 +110,8 @@ router.put("/api/dreams/:id", (req, res) => {
       id: req.params.id,
     }
   })
-    .then((data) => {
-      const updateddream = data.dataValues
-      console.log(updateddream)
+    .then(() => {
       console.log("#5 Update Dream Works!");
-      res.redirect("/all")
     })
     .catch(error => console.log(error));
 })

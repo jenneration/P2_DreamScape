@@ -3,15 +3,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     console.log("DOM loaded");
   }
 
-  //TEST TO CHECK CHECKBOX VALUES - future reference
-  const cb = document.querySelector("#lucid");
-  const getvalue = () => {
-    const result = cb.value;
-    alert(result); // on
-  };
-  cb.addEventListener("click", getvalue);
-
-
   //Get references to html elements
   let titleInput = document.getElementById("title");
   let tagsInput = document.getElementById("tags");
@@ -78,7 +69,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     });
   }
 
-  // # UPDATE
+  // # UPDATE and redirect to read page
   const btnUpdate = document.querySelector("#btn-update");
 
   const updateDream = (currentDream, id) => {
@@ -89,6 +80,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       },
       body: JSON.stringify(currentDream),
     }).then((response) => console.log(response));
+    window.location.href = `/api/read/${id}`;
   };
 
   btnUpdate.addEventListener("click", (e) => {

@@ -44,16 +44,16 @@ module.exports = (sequelize, DataTypes) => {
 
     createdAt: {
       type: DataTypes.DATEONLY,
-      get() {
-        return moment(this.getDataValue('createdAt')).format('DD.MM.YYYY');
-      }
+      // get() {
+      //   return moment(this.getDataValue('createdAt')).format('DD.MM.YYYY');
+      // }
     },
     
     updatedAt: {
       type: DataTypes.DATEONLY,
-      get() {
-        return moment(this.getDataValue('updatedAt')).format('DD.MM.YYYY');
-      }
+      // get() {
+      //   return moment(this.getDataValue('updatedAt')).format('DD.MM.YYYY');
+      // }
     }
   });
   return Dreams;
