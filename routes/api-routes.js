@@ -8,6 +8,7 @@ router.get("/all", (req, res) => res.redirect("/api/dreams"));
 router.get("/add", (req, res) => res.render("add"));
 router.get("/edit", (req, res) => res.render("edit"));
 router.get("/read", (req, res) => res.render("read"));
+router.get("/landing", (req, res) => res.render("landing"));
 
 
 //ADD NEW DREAM
@@ -29,9 +30,20 @@ router.get("/read", (req, res) => res.render("read"));
 
 
 
-
-
-
+router.get("/api/dreams/dash", (req, res) => {
+  
+  db.Dreams.findAll({})
+    .then((data) => {
+      console.log(data);
+      let dreams = data.map((object) => {
+        return object.dataValues;
+      });
+      console.log(dreams)
+      dreams = dreams.reverse();
+      res.json(dreams);
+    })
+    .catch((err) => console.log(err));
+});
 
 
 

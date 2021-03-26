@@ -7,14 +7,23 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-// Requiring passport as we've configured it
-// var session = require("express-session");
-// var passport = require("./config/passport");
 
-// // TODO We need to use sessions to keep track of our user's login status
-// app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-// app.use(passport.initialize());
-// app.use(passport.session());
+///////////////////////PASSPORT 
+var session = require("express-session");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
+
+//TODO We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
+/////////////////////////////
+
+
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -35,7 +44,9 @@ app.set("view engine", "handlebars");
 
 //Require routes
 const api = require("./routes/api-routes.js");
-// const html = require("./routes/html-routes.js");
+//const html = require("./routes/html-routes.js");
+require("./routes/loginhtml-routes.js")(app);
+app.use(require("./routes/loginapi-routes.js"));
 app.use(api);
 // app.use(html);
 

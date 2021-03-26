@@ -1,31 +1,63 @@
-<div>
+<div class="container">
   {{>nav}}
 </div>
 
-<div class="container-md wrapper" id="add">
-  <h1>Make some changes...</h1>
-  <div class="row form-wrap">
-    <div class="col-12">
-       <form action="/api/dreams" method="POST"></form>
-      {{!-- <form class="cms"> --}}
-        </div>
-        <div class="input-group">
-          <label for="technolovisual visualvisuales">Title</label>
-          <textarea name="tags" id="title" class="input-box textbox" maxlength="100">{{dream.title}}</textarea>
-        </div>
-        <div class="input-group">
-          <label for="technolovisual visualvisuales">Tags/Themes</label>
-          <textarea name="tags" id="tags" class="input-box textbox" maxlength="100">{{dream.tags}}</textarea>
-        </div>
-        <div class="input-group">
-          <label for="description">Dream</label>
-          <textarea name="description" id="description" class="input-box areabox"
-            rows="15">{{dream.description}}</textarea>
-        </div>
-        <button type="submit" value="update" id="btn-update" data-dream="{{dream.id}}"
-          class="btn btnd bg-warning">Submit</button>
-        <button type="submit" value="delete" id="btn-delete" data-dream="{{dream.id}}"
-          class="btn btnd bg-warning">Delete</button>
+
+<div class="container container-jg" id="add">
+  <div class="row page-wrap ">
+    <h1>Make some changes...</h1>
+    <div class="col-md-8">
+      <form action="/api/dreams" method="POST" id="cms"></form>
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <textarea name="title" id="title" class="input-box textbox form-control" maxlength="100"
+          placeholder="Too Many Cats">{{dream.title}}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="tags">Tags/Themes</label>
+        <textarea name="tags" id="tags" class="input-box textbox form-control" maxlength="100"
+          placeholder="howling, cats">{{dream.tags}}</textarea>
+      </div>
+      <div>
+        <label for="description">Dream</label>
+        <textarea name="description" id="description" class="input-box" rows="15"
+          placeholder="Far away in the woods I heard...">{{dream.description}}</textarea>
+      </div>
+    </div>
+
+    <div class="col-md">
+      <h2>Dream Stats</h2><span><em>This is optional</em></span>
+      <select class="form-select" name="mood" id="mood" aria-label="Default select example">
+        <option selected>Mood</option>
+        <option value="happy">Happy</option>
+        <option value="sad">Sad</option>
+        <option value="neutral">Neutral</option>
+        <option value="frightened">Frightened</option>
+        <option value="angry">Angry</option>
+        <option value="anxious">Anxious/Stressed</option>
+      </select>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="lucid" value="true" id="lucid">
+        <label class="form-check-label" for="flexRadioDefault1">Lucid Dream?</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="nightmare" value="true" id="nightmare">
+        <label class="form-check-label" for="flexRadioDefault1">Nightmare?</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="recdream" value="true" id="recdream">
+        <label class="form-check-label" for="flexRadioDefault1">Recurring dream?</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="rectheme" value="true" id="rectheme">
+        <label class="form-check-label" for="flexRadioDefault1">Recurring Theme?</label>
+      </div>
+
+      <button type="submit" value="update" id="btn-update" data-dream="{{dream.id}}"
+        class="btn bg-warning">Submit</button>
+      <button type="submit" value="delete" id="btn-delete" data-dream="{{dream.id}}"
+        class="btn bg-warning">Delete</button>
       </form>
     </div>
   </div>

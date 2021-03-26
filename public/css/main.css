@@ -1,0 +1,174 @@
+
+/* font-family: 'Amatic SC', cursive (light, 300);
+font-family: 'Open Sans Condensed', sans-serif; (400, 700)*/
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  height: 100%;
+  font-family:'Open Sans Condensed', sans-serif;
+  font-size: 1.20rem;
+}
+
+
+.container {
+  /* max-width: 960px; */
+  padding: 1rem 4rem;
+  margin: auto;
+  overflow: hidden;
+  /* margin-top: 100px; */
+}
+
+#dash {
+  text-align: center;
+
+}
+
+
+/*  TEXT */
+h1 {
+  /* margin-top: 80px; */
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  font-size: 5rem;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-family: "Amatic SC", cursive;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+h3 {
+  font-family: "Amatic SC", cursive;
+  font-weight: bold; ;
+  font-size: 2.5rem
+}
+
+#title {
+  font-weight: bold;
+}
+
+/* LANDING */
+
+.page-header {
+  height: 800px;
+  margin-top: 8rem;
+  /* background-image: url("/img/nightsky-white.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+
+
+
+
+}
+
+
+/* ADD PAGE */
+.col-md-8 {
+  margin-right: 45px;
+}
+
+.form-check-input:checked {
+  background-color: lime;
+  border-color:rgb(220, 217, 217);
+  border: none;
+}
+
+#mood {
+  width: 175px;
+}
+
+
+
+/* ALL PAGE */
+.card-jg {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: #000, 1px;
+}
+
+/* READ PAGE */
+.read-group,
+.read-body {
+  border-top: 1px solid #e6e6e6;
+    padding-top: 2rem;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+/* UPDATE PAGE */
+.textbox {
+  resize: none;
+  padding: 75rem;
+  height: 55px;
+}
+
+
+/* FORMS */
+.form-wrap {
+  margin-top: 1rem;
+  display: block;
+  width: 100%;
+} 
+
+/* DASH */
+
+
+
+.input-box {
+  padding: 0.75rem;
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 1.2rem;
+  border: 1px solid darkgrey;
+  display:inline-block;
+  /* width:20%; */
+  /* margin:5% auto; */
+  /* border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; */
+  /* line-height:1.5em; */
+  /* background:hsla(67, 95%, 95%, 1); */
+  /* border:solid 2px rgb(165, 26, 26); */
+  /* border:dotted 2px rgb(113, 113, 113) */
+
+}
+
+::placeholder {
+color: rgb(220, 217, 217);
+font-style: italic;
+}
+
+.form-select,
+.form-check {
+  margin-top: 25px;
+}
+
+label {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+/* BUTTONS */
+#btn-add {
+  width: 110px;
+  margin-top: 100px;
+}
+
+#btn-read {
+  margin-top: 25px;
+  width: 110px;
+}
+
+.btn,
+.button {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+

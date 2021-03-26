@@ -1,26 +1,26 @@
-<div>
-{{>nav}}
+<div class="container">
+  {{>nav}}
 </div>
 
-<div class="container-md wrapper">
-  <div class="content-wrap">
+<div class="container container-jg">
+  <div class="form-wrap page-wrap ">
     <h1>All Dreams</h1>
-    
-{{#each dreams}}
+
+    {{#each dreams}}
     <div class="card card-jg" id="all-card" data-dream="{{id}}">
       <div class="card-body">
-        <h5 id="title" class="card-title" >{{title}}</h5>
+        <h5 id="title" class="card-title">Dream: "{{title}}"</h5>
       </div>
       <ul class="list-group list-group-flush">
-        <li id="tags" class="list-group-item">{{tags}}</li>
-        <li id="createdAt" class="list-group-item">{{createdAt}}</li>
+        <li id="tags" class="list-group-item">Tags: {{tags}}</li>
+        <li id="createdAt" class="list-group-item">Date: {{createdAt}}</li>
       </ul>
-      <div class="card-body">
-        <button type="button" data-dream="{{id}}" id="btn-read" class="btn btn-warning">Read/Edit</button>
-
+      <div>
+        <button type="button" data-dream="{{id}}" id="btn-read"
+          class="btn btn-outline-dark float-right">Read/Edit</button>
       </div>
     </div>
-{{else}}
-<p>No dreams yet</p>
-{{/each}}
-</div>
+    {{else}}
+    <p>No dreams yet</p>
+    {{/each}}
+  </div>

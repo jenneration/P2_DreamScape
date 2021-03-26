@@ -1,18 +1,33 @@
-<div>
-    {{>nav}}
+<div class="container">
+  {{>nav}}
 </div>
-
-
-
-    <div class="container-md wrapper" id="dash">
-        <div class="wrap">
+    <div class="container container-dash" id="dash">
+        <div class="row page-wrap ">
             <h1>This is the dashboard page</h1>
+
+            <div class="col-md-4 d-flex justify-content-center">
             <canvas id="myChart"></canvas>
+
+            </div>
+
+            <div class="col-md-4">
+            <canvas id="myChart2"></canvas>
+            </div>
+
+            <div class="col-md-4">
+            <canvas id="myChart3"></canvas>
+            </div>
+
+
         </div>
     </div>
 
-<script>let myChart = document.getElementById("myChart").getContext("2d");
+<script>
+    let myChart = document.getElementById("myChart").getContext("2d");
+fetch("/api/dreams/dash").then(res => res.json()).then(data => {
+console.log(data);
 
+})
     //*****Global Options
     //Chart.defaults.global.defaultFontFamily = "",
     //Chart.defaults.global.defaultFontSize = "",
@@ -45,11 +60,11 @@
         options: { //these can be altered/deleted
             title: {
                 display: true, //or false for other charts
-                text: "Title",
+                text: "Lucid",
                 fontSize: 25
             },
             legend: {
-                display: true,
+                display: false,
                 position: "right", //can change
                 labels: {
                     fontColor: "#000"
@@ -69,6 +84,123 @@
         }
 
     });
+///////
+let myChart2 = document.getElementById("myChart2").getContext("2d");
+
+    //*****Global Options
+    //Chart.defaults.global.defaultFontFamily = "",
+    //Chart.defaults.global.defaultFontSize = "",
+    //Chart.defaults.global.defaultFontColor = "",
+
+    let nightmare = new Chart(myChart2, {
+        type: "pie",  //bar, horizontal, pie, line, doughnut, radar, polar
+        data: {
+            labels: ["Boston", "Worcester", "Lowell", "Cambridge"],
+            datasets: [{
+                label: "Population",
+                data: [
+                    11111,
+                    88888,
+                    33333,
+                    11111,
+                    555555
+                ],
+                //backgroundColor: "green"
+                backgroundColor: [
+                    "rgba(255, 99, 132, 0.6",
+                    "rgba(54, 162, 235, 0.6"
+                ],
+                borderWidth: 3,
+                borderColor: "#777",
+                hoverBorderWidth: "#000",
+                hoverBorderColor: "#000"
+            }]
+        },
+        options: { //these can be altered/deleted
+            title: {
+                display: true, //or false for other charts
+                text: "Nightmare",
+                fontSize: 25
+            },
+            legend: {
+                display: false,
+                position: "right", //can change
+                labels: {
+                    fontColor: "#000"
+                }
+            },
+            layout: {
+                padding: {
+                    left: 50,
+                    right: 0,
+                    bottom:0,
+                    top: 0
+                }
+            },
+            tooltips: {
+                enabled: true // or true
+            }
+        }
+
+    });
+
+///////
+
+let massPopChart3 = new Chart(myChart3, {
+        type: "pie",  //bar, horizontal, pie, line, doughnut, radar, polar
+        data: {
+            labels: ["Boston", "Worcester", "Lowell", "Cambridge"],
+            datasets: [{
+                label: "Population",
+                data: [
+                    11111,
+                    22222,
+                    33333,
+                    444444,
+                    555555
+                ],
+                //backgroundColor: "green"
+                backgroundColor: [
+                    "rgba(255, 99, 132, 0.6",
+                    "rgba(54, 162, 235, 0.6"
+                ],
+                borderWidth: 3,
+                borderColor: "#777",
+                hoverBorderWidth: "#000",
+                hoverBorderColor: "#000"
+            }]
+        },
+        options: { //these can be altered/deleted
+            title: {
+                display: true, //or false for other charts
+                text: "Recurring",
+                fontSize: 25
+            },
+            legend: {
+                display: false,
+                position: "right", //can change
+                labels: {
+                    fontColor: "#000"
+                }
+            },
+            layout: {
+                padding: {
+                    left: 50,
+                    right: 0,
+                    bottom:0,
+                    top: 0
+                }
+            },
+            tooltips: {
+                enabled: true // or true
+            }
+        }
+
+    });
+///////
+
+
+
 
 
 

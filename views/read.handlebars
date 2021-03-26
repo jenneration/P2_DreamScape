@@ -1,30 +1,26 @@
-<div>
+<div class="container">
     {{>nav}}
 </div>
 
 
-<div class="container-md wrapper" id="read">
-    <div class="wrap">
-        <div class="dream-page">
+
+<div class="container container-jg" id="read">
+    <div class="row page-wrap ">
+        <div class="col-md-12">
             <h1 id="title">{{dream.title}}</h1>
             <div class="dream-info">
                 <p id="createdAt" class="read-group">{{dream.createdAt}}</p>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm d-flex justify-content-end">
-                            <button type="button btnd" data-dream="{{dream.id}}" id="btn-edit"
-                                class="btn btn-warning">Edit</button>
-                        </div>
-                        <div class="col-sm d-flex justify-content-start">
-                            <button type="button" data-dream="{{dream.id}}" id="btn-delete"
-                                class="btn btn-primary">Delete</button>
-                        </div>
-                    </div>
+                <div class="justify-content-center">
+                    <button type="button btnd" data-dream="{{dream.id}}" id="btn-edit"
+                        class="btn btn-warning">Edit</button>
+                    <button type="button" data-dream="{{dream.id}}" id="btn-delete"
+                        class="btn btn-primary">Delete</button>
                 </div>
-                <p id="tags" class="read-group">{{dream.tags}}</p>
-                <p id="description" class="read-body">{{dream.description}}</p>
+
             </div>
+            <p id="tags" class="read-group">{{dream.tags}}</p>
+            <p id="description" class="read-body">{{dream.description}}</p>
         </div>
     </div>
 </div>
