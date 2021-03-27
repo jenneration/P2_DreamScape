@@ -15,7 +15,11 @@ body {
   font-size: 1.20rem;
 }
 
-
+.navbar-brand,
+ .nav-link {
+  color: #000;
+  font-weight: bold;
+}
 .container {
   /* max-width: 960px; */
   padding: 1rem 4rem;
@@ -24,10 +28,7 @@ body {
   /* margin-top: 100px; */
 }
 
-#dash {
-  text-align: center;
 
-}
 
 
 /*  TEXT */
@@ -119,9 +120,13 @@ h3 {
 } 
 
 /* DASH */
+#dash {
+  text-align: center;
+
+}
 
 
-
+/* ADD AND EDIT INPUTS */
 .input-box {
   padding: 0.75rem;
   font-size: 18px;
@@ -140,7 +145,7 @@ h3 {
 }
 
 ::placeholder {
-color: rgb(220, 217, 217);
+
 font-style: italic;
 }
 
@@ -149,7 +154,8 @@ font-style: italic;
   margin-top: 25px;
 }
 
-label {
+/* Labels above ADD/UPDATE dream forms */
+.form-group label {
   margin-bottom: 15px;
   margin-top: 15px;
 }
