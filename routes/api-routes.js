@@ -3,12 +3,12 @@ const db = require("../models");
 const router = express.Router();
 
 
-router.get("/", (req, res) => res.render("dash"));
+router.get("/dash", (req, res) => res.render("dash"));
 router.get("/all", (req, res) => res.redirect("/api/dreams"));
 router.get("/add", (req, res) => res.render("add"));
 router.get("/edit", (req, res) => res.render("edit"));
 router.get("/read", (req, res) => res.render("read"));
-router.get("/landing", (req, res) => res.render("landing"));
+router.get("/", (req, res) => res.render("landing"));
 
 
 //ADD NEW DREAM
@@ -29,15 +29,17 @@ router.get("/landing", (req, res) => res.render("landing"));
 // })
 
 
-
+// ORIGINAL STATE
 router.get("/api/dreams/dash", (req, res) => {
-  
+let arrlucid = [];
+
   db.Dreams.findAll({})
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       let dreams = data.map((object) => {
-        return object.dataValues;
+      return object.dataValues;
       });
+
       console.log(dreams)
       dreams = dreams.reverse();
       res.json(dreams);
@@ -50,7 +52,7 @@ router.get("/api/dreams/dash", (req, res) => {
 
 
 
-
+//////////////////////////////////////////////
 
 
 

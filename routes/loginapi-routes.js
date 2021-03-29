@@ -8,6 +8,7 @@ var passport = require("../config/passport");
 // Using the passport.authenticate middleware with our local strategy.
 // If the user has valid login credentials, send them to the members page.
 // Otherwise the user will be sent an error
+
 router.post("/api/login", passport.authenticate("local"), function (req, res) {
   res.json(req.user);
 });
@@ -31,6 +32,7 @@ router.post("/api/signup", function (req, res) {
 // Route for logging user out
 router.get("/logout", function (req, res) {
   req.logout();
+  //ORIGINAL
   res.redirect("/");
 });
 
