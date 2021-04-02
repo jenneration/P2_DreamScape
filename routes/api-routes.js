@@ -31,16 +31,17 @@ router.get("/", (req, res) => res.render("landing"));
 
 // ORIGINAL STATE
 router.get("/api/dreams/dash", (req, res) => {
-let arrlucid = [];
+
 
   db.Dreams.findAll({})
     .then((data) => {
       //console.log(data);
       let dreams = data.map((object) => {
-      return object.dataValues;
+        return object.dataValues;
       });
 
       console.log(dreams)
+      console.log("Find All Dash")
       dreams = dreams.reverse();
       res.json(dreams);
     })
@@ -58,7 +59,7 @@ let arrlucid = [];
 
 // #1 VIEW ALL dreams AFTER CREATED or NAV - OK
 router.get("/api/dreams", (req, res) => {
-  
+
   db.Dreams.findAll({})
     .then((data) => {
       console.log(data);

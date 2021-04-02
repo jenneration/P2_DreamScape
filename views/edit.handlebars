@@ -3,10 +3,13 @@
 </div>
 
 
-<div class="container container-jg" id="add">
+<div class="container">
+
   <div class="row page-wrap ">
-    <h1>Make some changes...</h1>
-    <div class="col-md-8">
+
+    <h1 class="h1-add offset-md-1">Make some changes...</h1>
+
+    <div class="col-md-6 offset-md-1 mr-25 ">
       <form action="/api/dreams" method="POST" id="cms"></form>
 
       <div class="form-group">
@@ -19,14 +22,14 @@
         <textarea name="tags" id="tags" class="input-box textbox form-control" maxlength="100"
           placeholder="howling, cats">{{dream.tags}}</textarea>
       </div>
-      <div>
+      <div class="form-group"> 
         <label for="description">Dream</label>
         <textarea name="description" id="description" class="input-box" rows="15"
           placeholder="Far away in the woods I heard...">{{dream.description}}</textarea>
       </div>
     </div>
 
-    <div class="col-md">
+    <div class="col-md offset-md-1">
       <h2>Dream Stats</h2><span><em>This is optional</em></span>
       <select class="form-select" name="mood" id="mood" aria-label="Default select example">
         <option selected>Mood</option>
@@ -54,11 +57,17 @@
         <label class="form-check-label" for="flexRadioDefault1">Recurring Theme?</label>
       </div>
 
-      <button type="submit" value="update" id="btn-update" data-dream="{{dream.id}}"
-        class="btn bg-warning">Submit</button>
-      <button type="submit" value="delete" id="btn-delete" data-dream="{{dream.id}}"
-        class="btn bg-warning">Delete</button>
+      <button type="submit" value="update" id="btn-update" class="btn btn-dark" data-dream="{{dream.id}}">Submit</button>
+        <br>
+        <br>
+        <br>
+      {{!-- <button type="submit" value="delete" id="btn-delete" data-dream="{{dream.id}}"
+        class="btn bg-warning">Delete</button> --}}
       </form>
     </div>
   </div>
+</div>
+
+<div class="footer">
+  <p>copyright 2021 DREAMSCAPE, jenner garcia</p>
 </div>

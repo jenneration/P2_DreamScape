@@ -2,25 +2,30 @@
     {{>nav}}
 </div>
 
-
-
-<div class="container container-jg" id="read">
+<div class="container" id="read">
     <div class="row page-wrap ">
         <div class="col-md-12">
             <h1 id="title">{{dream.title}}</h1>
+            <hr>
             <div class="dream-info">
                 <p id="createdAt" class="read-group">{{dream.createdAt}}</p>
-
+                <hr>
                 <div class="justify-content-center">
                     <button type="button btnd" data-dream="{{dream.id}}" id="btn-edit"
-                        class="btn btn-warning">Edit</button>
+                        class="btn btn-dark">Edit</button>
                     <button type="button" data-dream="{{dream.id}}" id="btn-delete"
-                        class="btn btn-primary">Delete</button>
+                        class="btn btn-light">Delete</button>
                 </div>
-
+                <hr>
             </div>
             <p id="tags" class="read-group">{{dream.tags}}</p>
+            <hr>
             <p id="description" class="read-body">{{dream.description}}</p>
         </div>
     </div>
+</div>
+
+
+<div class="footer">
+    <p>copyright 2021 DREAMSCAPE, jenner garcia</p>
 </div>

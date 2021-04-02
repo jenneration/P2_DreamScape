@@ -2,25 +2,38 @@
   {{>nav}}
 </div>
 
-<div class="container container-jg">
-  <div class="form-wrap page-wrap ">
-    <h1>All Dreams</h1>
+<div class="wrapper-all">
+  <div class="fixed-bg bg-1">
+    <div class="container container-jg">
+      <div class="form-wrap page-wrap scroll-bg">
 
-    {{#each dreams}}
-    <div class="card card-jg" id="all-card" data-dream="{{id}}">
-      <div class="card-body">
-        <h5 id="title" class="card-title">Dream: "{{title}}"</h5>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li id="tags" class="list-group-item">Tags: {{tags}}</li>
-        <li id="createdAt" class="list-group-item">Date: {{createdAt}}</li>
-      </ul>
-      <div>
-        <button type="button" data-dream="{{id}}" id="btn-read"
-          class="btn btn-outline-dark float-right">Read/Edit</button>
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <h1 class="h1-all">All Dreams</h1>
+            {{#each dreams}}
+            <div class="card border-secondary card-jg shadow p-3 mb-3 bg-body rounded" id="all-card"
+              data-dream="{{id}}">
+              <div class="card-body">
+                <h5 id="title" class="card-title">Dream: {{title}}</h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li id="tags" class="list-group-item">Tags: {{tags}}</li>
+                <li id="createdAt" class="list-group-item">Date: {{createdAt}}</li>
+              </ul>
+              <div>
+                <button type="button" data-dream="{{id}}" id="btn-read" class="btn btn-dark">Read/Edit</button>
+              </div>
+            </div>
+            {{else}}
+            <p>No dreams yet</p>
+            {{/each}}
+          </div>
+        </div>
       </div>
     </div>
-    {{else}}
-    <p>No dreams yet</p>
-    {{/each}}
   </div>
+</div>
+
+<div class="footer">
+  <p>copyright 2021 DREAMSCAPE, jenner garcia</p>
+</div>
