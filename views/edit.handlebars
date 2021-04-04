@@ -2,68 +2,67 @@
   {{>nav}}
 </div>
 
+<div class="wrapper-all">
+  <div class="fixed-bg bg-2">
+    <div class="container">
+      <div class="row page-wrap scroll-bg justify-content-center">
+        <h1 class="h1-add">Make some changes...</h1>
+        <div class="col-md-7">
+          <form action="/api/dreams" method="POST" id="cms"></form>
 
-<div class="container">
+          <div class="form-group">
+            <label for="title" class="text-add">Title</label>
+            <textarea name="title" id="title" class="input-box textbox form-control" maxlength="100"
+              placeholder="Too Many Cats">{{dream.title}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="tags" class="text-add">Tags/Themes</label>
+            <textarea name="tags" id="tags" class="input-box textbox form-control" maxlength="100"
+              placeholder="howling, cats">{{dream.tags}}</textarea>
+          </div>
+          <div class="form-group">
+            <label for="description" class="text-add">Dream</label>
+            <textarea name="description" id="description" class="input-box" rows="12"
+              placeholder="Far away in the woods I heard...">{{dream.description}}</textarea>
+          </div>
+        </div>
 
-  <div class="row page-wrap ">
+        <div class="col-md-5">
+          <h2 class="h2-add">Dream Stats</h2><span><em class="text-add1">This is optional</em></span>
+          <select class="form-select" name="mood" id="mood" aria-label="Default select example">
+            <option selected>Mood</option>
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="neutral">Neutral</option>
+            <option value="frightened">Frightened</option>
+            <option value="angry">Angry</option>
+            <option value="anxious">Anxious/Stressed</option>
+          </select>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="lucid" value="true" id="lucid">
+            <label class="form-check-label text-add" for="flexRadioDefault1">Lucid Dream?</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="nightmare" value="true" id="nightmare">
+            <label class="form-check-label text-add" for="flexRadioDefault1">Nightmare?</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="recdream" value="true" id="recdream">
+            <label class="form-check-label text-add" for="flexRadioDefault1">Recurring dream?</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="rectheme" value="true" id="rectheme">
+            <label class="form-check-label text-add" for="flexRadioDefault1">Recurring Theme?</label>
+          </div>
 
-    <h1 class="h1-add offset-md-1">Make some changes...</h1>
-
-    <div class="col-md-6 offset-md-1 mr-25 ">
-      <form action="/api/dreams" method="POST" id="cms"></form>
-
-      <div class="form-group">
-        <label for="title">Title</label>
-        <textarea name="title" id="title" class="input-box textbox form-control" maxlength="100"
-          placeholder="Too Many Cats">{{dream.title}}</textarea>
+          <button type="submit" value="update" id="btn-update" class="btn text-add1"
+            data-dream="{{dream.id}}">Submit</button>
+          <br>
+          <br>
+          <br>
+          </form>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="tags">Tags/Themes</label>
-        <textarea name="tags" id="tags" class="input-box textbox form-control" maxlength="100"
-          placeholder="howling, cats">{{dream.tags}}</textarea>
-      </div>
-      <div class="form-group"> 
-        <label for="description">Dream</label>
-        <textarea name="description" id="description" class="input-box" rows="15"
-          placeholder="Far away in the woods I heard...">{{dream.description}}</textarea>
-      </div>
-    </div>
-
-    <div class="col-md offset-md-1">
-      <h2>Dream Stats</h2><span><em>This is optional</em></span>
-      <select class="form-select" name="mood" id="mood" aria-label="Default select example">
-        <option selected>Mood</option>
-        <option value="happy">Happy</option>
-        <option value="sad">Sad</option>
-        <option value="neutral">Neutral</option>
-        <option value="frightened">Frightened</option>
-        <option value="angry">Angry</option>
-        <option value="anxious">Anxious/Stressed</option>
-      </select>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="lucid" value="true" id="lucid">
-        <label class="form-check-label" for="flexRadioDefault1">Lucid Dream?</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="nightmare" value="true" id="nightmare">
-        <label class="form-check-label" for="flexRadioDefault1">Nightmare?</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="recdream" value="true" id="recdream">
-        <label class="form-check-label" for="flexRadioDefault1">Recurring dream?</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="rectheme" value="true" id="rectheme">
-        <label class="form-check-label" for="flexRadioDefault1">Recurring Theme?</label>
-      </div>
-
-      <button type="submit" value="update" id="btn-update" class="btn btn-dark" data-dream="{{dream.id}}">Submit</button>
-        <br>
-        <br>
-        <br>
-      {{!-- <button type="submit" value="delete" id="btn-delete" data-dream="{{dream.id}}"
-        class="btn bg-warning">Delete</button> --}}
-      </form>
     </div>
   </div>
 </div>

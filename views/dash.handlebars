@@ -2,24 +2,29 @@
     {{>nav}}
 </div>
 
-<div class="container container-dash" id="dash">
-    <div class="row page-wrap ">
-        <h1>This is the dashboard page</h1>
+<div class="wrapper-all">
+    <div class="fixed-bg bg-5">
+        <div class="container container-dash" id="dash">
+            <div class="row page-wrap scroll-bg justify-content-center">
+                <div class="dash-header">
+                    <h1 class="h1-all">DREAM DASHBOARD</h1>
+                </div>
+                <div class=" col-sm col-md-4">
+                    <canvas id="myChart"></canvas>
+                </div>
 
-        <div class="col-md-4 d-flex justify-content-center">
-            <canvas id="myChart"></canvas>
-        </div>
+                <div class="col-sm col-md-4">
+                    <canvas id="myChart2"></canvas>
+                </div>
 
-        <div class="col-md-4">
-            <canvas id="myChart2"></canvas>
-        </div>
+                <div class="col-sm col-md-4">
+                    <canvas id="myChart3"></canvas>
+                </div>
 
-        <div class="col-md-4">
-            <canvas id="myChart3"></canvas>
-        </div>
-
-        <div class="row dash-2">
-            <canvas id="myChart4"></canvas>
+                <div class="row dash-4">
+                    <canvas id="myChart4"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -38,11 +43,19 @@
 
 
 <script>
+
     let myChart = document.getElementById("myChart").getContext("2d");
+
+
     let lucid;
     let nightmare;
     let recdream;
     let rectheme;
+    let arrmood = [];
+    let sad;
+    let neutral;
+    let mood;
+    let count;
     let dreams;
     fetch("/api/dreams/dash")
         .then(res => res.json())
@@ -54,7 +67,29 @@
             recdream = data.filter((object) => object.recdream);
             rectheme = data.filter((object) => object.rectheme);
 
-            console.log(lucid);
+            neutral = data.reduce(function (n, object) {
+                return n + (object.mood == 'neutral');
+            }, 0);
+
+            mood = data.reduce(function (n, object) {
+                return n + (object.mood == 'frightened');
+            }, 0);
+            console.log(mood)
+
+
+            mood = data.map((item) => {
+                arrmood.push(item.mood);
+                console.log(arrmood)
+            });
+
+            count = {};
+            arrmood.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+            count = JSON.stringify(count);
+            console.log(count);
+
+
+
+
 
             let massPopChart = new Chart(myChart, {
                 type: "pie",  //bar, horizontal, pie, line, doughnut, radar, polar
@@ -63,12 +98,14 @@
                     datasets: [{
                         label: "Population",
                         data: [
-                            (lucid.length / dreams.length * 100), 100
+
+                            (lucid.length / dreams.length) * 100, ((dreams.length - lucid.length) / dreams.length * 100),
+
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
-                            "rgba(255, 99, 132, 0.6",
-                            "rgba(54, 162, 235, 0.6"
+                            "rgb(254, 254, 160)",
+                            "#000"
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -79,8 +116,9 @@
                 options: { //these can be altered/deleted
                     title: {
                         display: true, //or false for other charts
-                        text: "Lucid",
-                        fontSize: 25
+                        text: "Lucidity",
+                        fontSize: 25,
+                        fontColor: "#fff"
                     },
                     legend: {
                         display: false,
@@ -106,24 +144,20 @@
             ///////
             let myChart2 = document.getElementById("myChart2").getContext("2d");
 
-            //*****Global Options
-            //Chart.defaults.global.defaultFontFamily = "",
-            //Chart.defaults.global.defaultFontSize = "",
-            //Chart.defaults.global.defaultFontColor = "",
 
             let nightmares = new Chart(myChart2, {
                 type: "pie",  //bar, horizontal, pie, line, doughnut, radar, polar
                 data: {
-                    labels: [" Nightmare", "Non-Nightmare"],
+                    labels: ["Nightmare", "Non-Nightmare"],
                     datasets: [{
                         label: "Population",
                         data: [
-                            (nightmare.length / dreams.length * 100), 100
+                            (nightmare.length / dreams.length * 100), ((dreams.length - nightmare.length) / dreams.length * 100)
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
-                            "rgba(255, 99, 132, 0.6",
-                            "rgba(54, 162, 235, 0.6"
+                            "rgb(254, 254, 160)",
+                            "#000"
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -135,7 +169,8 @@
                     title: {
                         display: true, //or false for other charts
                         text: "Nightmares",
-                        fontSize: 25
+                        fontSize: 25,
+                        fontColor: "#fff"
                     },
                     legend: {
                         display: false,
@@ -164,16 +199,16 @@
             let massPopChart3 = new Chart(myChart3, {
                 type: "pie",  //bar, horizontal, pie, line, doughnut, radar, polar
                 data: {
-                    labels: ["Boston", "Worcester", "Lowell", "Cambridge"],
+                    labels: ["Recurring", "Non-Recurring"],
                     datasets: [{
                         label: "Population",
                         data: [
-                       (lucid.length / dreams.length * 100), 100
+                            (recdream.length / dreams.length * 100), ((dreams.length - recdream.length) / dreams.length * 100)
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
-                            "rgba(255, 99, 132, 0.6",
-                            "rgba(54, 162, 235, 0.6"
+                            "rgb(254, 254, 160)",
+                            "#000"
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -185,7 +220,8 @@
                     title: {
                         display: true, //or false for other charts
                         text: "Recurring",
-                        fontSize: 25
+                        fontSize: 25,
+                        fontColor: "#fff"
                     },
                     legend: {
                         display: false,
@@ -209,19 +245,18 @@
 
             });
             ///////
+
+
+
             let massPopChart4 = new Chart(myChart4, {
-                type: "bar",  //bar, horizontal, pie, line, doughnut, radar, polarArea
+                type: "doughnut",  //bar, horizontal, pie, line, doughnut, radar, polarArea
                 data: {
                     labels: ["Happy", "Sad", "Neutral", "Frightened", "Angry", "Anxious"],
                     datasets: [{
                         label: "Population",
                         data: [
-                            50000,
-                            77777,
-                            33333,
-                            444444,
-                            555555,
-                            666666
+                            (neutral / dreams.length) * 100,
+
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
