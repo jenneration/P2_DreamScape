@@ -129,16 +129,19 @@ width: 155px;
 .text-add {
   color: rgb(254, 254, 160)
 }
-
-.text-add1,
 .btn.text-all1 {
+  background-color: #000; 
   color: #fff;
 }
 
-.btn.text-add1,
-.btn.text-all1 {
-  background-color: #212529;
+.text-add1 {
+  color: #fff;
+}
+
+.btn.text-add1 {
+  background-color: #fff;
   border: solid 1px black;
+  color: #000;
 }
 
 .btn.text-add:hover,
@@ -162,9 +165,14 @@ width: 155px;
   background: #fff;
 }
 
+.form-check-input:checked[type=radio] {
+  background-image: none;
+}
+
+
 .form-check-input:checked {
-  background-color: rgb(254, 254, 160);
-  border-color: #f8f9fa;
+  background-color: rgb(51, 174, 26);
+  border-color: rgb(51, 174, 26);
   border: none;
 }
 
@@ -182,8 +190,12 @@ width: 155px;
   text-align: center;
 }
 
-.dash-2 {
-  margin-top: 75px;
+.row.dash-123 {
+
+}
+
+.row.dash-4 {
+  padding-top: 60px;
 }
 
 /* ALL PAGE */
@@ -217,11 +229,11 @@ width: 155px;
 }
 
 .bg-1 {
-  background-image: url("../img/Slide9.jpg");
+  background-image: url("../img/Slide11.jpg");
 }
 
 .bg-2 {
-  background-image: url("../img/Slide3.jpg");
+  background-image: url("../img/Slide4A.jpg");
 }
 
 .bg-3 {
@@ -233,7 +245,7 @@ width: 155px;
 }
 
 .bg-5 {
-  background-image: url("../img/slide4A.jpg");
+  background-image: url("../img/slide11.jpg");
 }
 
 .card-jg {

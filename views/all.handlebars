@@ -4,10 +4,9 @@
 
 <div class="wrapper-all">
   <div class="fixed-bg bg-1">
-    <div class="container container-jg">
+    <div class="container">
       <div class="form-wrap page-wrap scroll-bg">
-
-        <div class="row">
+        <div class="row ">
           <div class="col-md-8 offset-md-2">
             <h1 class="h1-all">All Dreams</h1>
             {{#each dreams}}
@@ -18,7 +17,7 @@
               </div>
               <ul class="list-group list-group-flush">
                 <li id="tags" class="list-group-item">Tags: {{tags}}</li>
-                <li id="createdAt" class="list-group-item">Date: {{createdAt}}</li>
+                <li id="createdAt" class="list-group-item">Created on: {{createdAt}}</li>
               </ul>
               <div>
                 <button type="button" data-dream="{{id}}" id="btn-read" class="btn text-all1">Read/Edit</button>

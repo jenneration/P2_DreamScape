@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
   if (btnEdit) {
     btnEdit.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log("CLICK");
       console.log(e);
 
       let id = e.target.getAttribute("data-dream");
@@ -69,47 +68,85 @@ document.addEventListener("DOMContentLoaded", (e) => {
     });
   }
 
-  // # UPDATE and redirect to read page
+
+  const deleteBtn = document.querySelector("#btn-delete");
+  if (deleteBtn) {
+
+    const deleteDream = (id) => {
+
+      fetch(`/api/dreams/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(() => console.log("DELETED"));
+    };
+
+    deleteBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("CLICK")
+      let id = e.target.getAttribute("data-dream");
+      deleteDream(id);
+    });
+  }
+
+
+  // #5 UPDATE and redirect to read page
+
   const btnUpdate = document.querySelector("#btn-update");
 
-  const updateDream = (currentDream, id) => {
-    fetch(`/api/dreams/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": " application/json",
-      },
-      body: JSON.stringify(currentDream),
-    }).then((response) => console.log(response));
-    window.location.href = `/api/read/${id}`;
-  };
+  if (btnUpdate) {
 
-  btnUpdate.addEventListener("click", (e) => {
-    e.preventDefault();
-    const currentDream = {
-      title: titleInput.value.trim(),
-      tags: tagsInput.value.trim(),
-      description: descriptionInput.value.trim(),
+    const updateDream = (currentDream, id) => {
+      fetch(`/api/dreams/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": " application/json",
+        },
+        body: JSON.stringify(currentDream),
+      }).then((response) => console.log(response));
+      window.location.href = `/api/read/${id}`;
+
     };
-    console.log(currentDream);
-    let id = e.target.getAttribute("data-dream");
-    updateDream(currentDream, id);
-  });
 
-  // #6 DELETE
-  const deleteBtn = document.querySelector("#btn-delete");
-  const deleteDream = (id) => {
-    console.log("dataset.dream");
-    fetch(`/api/dreams/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(() => console.log("DELETED"));
-  };
+    btnUpdate.addEventListener("click", (e) => {
+      e.preventDefault();
+      const currentDream = {
+        title: titleInput.value.trim(),
+        tags: tagsInput.value.trim(),
+        description: descriptionInput.value.trim(),
+      };
+      console.log(currentDream);
+      let id = e.target.getAttribute("data-dream");
+      updateDream(currentDream, id);
+    });
+  }
 
-  deleteBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    let id = e.target.getAttribute("data-dream");
-    deleteDream(id);
-  });
+  //FIX
+  // #5A Change display of "alert" on successful update
+  // function changeDisplay() {
+  //   document.getElementById('update-alert').style.display = 'block';
+  // }
+
+
+  // #6 DELETE - WORKS
+  // const deleteBtn = document.querySelector("#btn-delete");
+
+  // const deleteDream = (id) => {
+  //   fetch(`/api/dreams/${id}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).then(() => console.log("DELETED"));
+  // };
+
+  // deleteBtn.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   console.log("CLICK")
+  //   let id = e.target.getAttribute("data-dream");
+  //   deleteDream(id);
+  // });
+
+
 });

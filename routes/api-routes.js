@@ -2,7 +2,6 @@ const express = require("express");
 const db = require("../models");
 const router = express.Router();
 
-
 router.get("/dash", (req, res) => res.render("dash"));
 router.get("/all", (req, res) => res.redirect("/api/dreams"));
 router.get("/add", (req, res) => res.render("add"));
@@ -10,7 +9,7 @@ router.get("/edit", (req, res) => res.render("edit"));
 router.get("/read", (req, res) => res.render("read"));
 router.get("/", (req, res) => res.render("landing"));
 
-
+let updated = false;
 //ADD NEW DREAM
 // router.put("/api/dreams/:id", (req, res) => {
 //   console.log(req.body);
@@ -110,8 +109,10 @@ router.get("/api/edit/:id", (req, res) => {
       },
     })
     .then((data) => {
-      const dream = data.dataValues;
-      console.log("#5 Prep for edit works!")
+      const dream = { ...data.dataValues, updated };
+      updated = false;
+      console.log(dream);
+      console.log("#5 Prep for edit works!");
       res.render("edit", { dream: dream });
     })
     .catch((err) => console.log(err))
@@ -125,8 +126,11 @@ router.put("/api/dreams/:id", (req, res) => {
       id: req.params.id,
     }
   })
-    .then(() => {
-      console.log("#5 Update Dream Works!");
+    .then((data) => {
+      console.log("#5 Update Dream Works!")
+      if (data === [1]) {
+        updated = true;
+      }
     })
     .catch(error => console.log(error));
 })

@@ -4,25 +4,27 @@
 
 <div class="wrapper-all">
     <div class="fixed-bg bg-5">
-        <div class="container container-dash" id="dash">
-            <div class="row page-wrap scroll-bg justify-content-center">
-                <div class="dash-header">
-                    <h1 class="h1-all">DREAM DASHBOARD</h1>
-                </div>
-                <div class=" col-sm col-md-4">
-                    <canvas id="myChart"></canvas>
-                </div>
+        <div class="container-md" id="dash">
+            <div class="page-wrap scroll-bg">
+                <div class="row dash-123 justify-content-center">
+                    <div class="dash-header">
+                        <h1 class="h1-all">DREAM DASHBOARD</h1>
+                    </div>
+                    <div class=" col-sm col-md-4">
+                        <canvas id="myChart"></canvas>
+                    </div>
 
-                <div class="col-sm col-md-4">
-                    <canvas id="myChart2"></canvas>
-                </div>
+                    <div class="col-sm col-md-4">
+                        <canvas id="myChart2"></canvas>
+                    </div>
 
-                <div class="col-sm col-md-4">
-                    <canvas id="myChart3"></canvas>
-                </div>
+                    <div class="col-sm col-md-4">
+                        <canvas id="myChart3"></canvas>
+                    </div>
 
-                <div class="row dash-4">
-                    <canvas id="myChart4"></canvas>
+                    <div class="row dash-4">
+                        <canvas id="myChart4"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,6 +56,11 @@
     let arrmood = [];
     let sad;
     let neutral;
+    let frightened;
+    let happy;
+    let angry;
+    let anxious;
+
     let mood;
     let count;
     let dreams;
@@ -67,29 +74,53 @@
             recdream = data.filter((object) => object.recdream);
             rectheme = data.filter((object) => object.rectheme);
 
+            //neutral = data.reduce(function (n, object) {
+            //console.log(neutral)
+            //return n + (object.mood == 'neutral');
+            // }, 0);
+
+            frightened = data.reduce(function (n, object) {
+                return n + (object.mood == 'frightened');
+            }, 0);
+            console.log(frightened)
+
+            happy = data.reduce(function (n, object) {
+                return n + (object.mood == 'happy');
+            }, 0);
+            console.log(happy)
+
+            angry = data.reduce(function (n, object) {
+                return n + (object.mood == 'angry');
+            }, 0);
+            console.log(angry)
+
             neutral = data.reduce(function (n, object) {
                 return n + (object.mood == 'neutral');
             }, 0);
+            console.log(neutral)
 
-            mood = data.reduce(function (n, object) {
-                return n + (object.mood == 'frightened');
+            anxious = data.reduce(function (n, object) {
+                return n + (object.mood == 'anxious');
             }, 0);
-            console.log(mood)
+            console.log(anxious);
+
+            sad = data.reduce(function (n, object) {
+                return n + (object.mood == 'sad');
+            }, 0);
+            console.log(sad)
 
 
-            mood = data.map((item) => {
-                arrmood.push(item.mood);
-                console.log(arrmood)
-            });
+            // mood = data.map((item) => {
+            //      arrmood.push(item.mood);
+            //console.log(arrmood)
+            //  // });
 
-            count = {};
-            arrmood.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
-            count = JSON.stringify(count);
-            console.log(count);
+            //count = {};
+            //arrmood.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+            ////count = JSON.stringify(count);
+            //console.log(count);
 
-
-
-
+            ///////////////
 
             let massPopChart = new Chart(myChart, {
                 type: "pie",  //bar, horizontal, pie, line, doughnut, radar, polar
@@ -104,8 +135,8 @@
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
-                            "rgb(254, 254, 160)",
-                            "#000"
+                            "rgb(51, 174, 26)",
+                            "#474747"
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -156,8 +187,8 @@
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
-                            "rgb(254, 254, 160)",
-                            "#000"
+                            "rgb(51, 174, 26)",
+                            "#474747"
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -207,8 +238,8 @@
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
-                            "rgb(254, 254, 160)",
-                            "#000"
+                            "rgb(51, 174, 26)",
+                            "#474747"
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -249,19 +280,30 @@
 
 
             let massPopChart4 = new Chart(myChart4, {
-                type: "polarArea",  //bar, horizontal, pie, line, doughnut, radar, polarArea
+                type: "doughnut",  //bar, horizontal, pie, line, doughnut, radar, polarArea
                 data: {
-                    labels: ["Happy", "Sad", "Neutral", "Frightened", "Angry", "Anxious"],
+                    labels: ["Frightened", "Happy", "Angry", "Neutral", "Anxious", "Sad"],
                     datasets: [{
                         label: "Population",
                         data: [
+                            (frightened / dreams.length) * 100,
+                            (happy / dreams.length) * 100,
+                            (angry / dreams.length) * 100,
                             (neutral / dreams.length) * 100,
+                            (anxious / dreams.length) * 100,
+                            (sad / dreams.length) * 100,
 
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
-                            "rgba(255, 99, 132, 0.6",
-                            "rgba(54, 162, 235, 0.6"
+                            "rgb(254, 254, 160)",
+                            "#fdd7E4",
+                            "#ff000",
+                            "#d2b48c",
+                            "#0009AB",
+                            "#89cff0",
+
+
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
