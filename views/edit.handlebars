@@ -5,22 +5,22 @@
 <div class="wrapper-all">
   <div class="fixed-bg bg-2">
     <div class="container container-jg">
-      <div class="row page-wrap scroll-bg ">
-        <h1 class="h1-add">Make some changes...</h1>
-        <div class="col-md-7">
+      <div class="row page-wrap scroll-bg mb-10">
+        <h1 class="h1-add text-center">Make some changes...</h1>
+        <div class="col-md-5 offset-md-2">
           <form action="/api/dreams" method="POST" id="cms"></form>
           <div class="form-group">
-            <label for="title" class="text-add">Title</label>
+            <label for="title" class="text-add"><strong>Title</strong></label>
             <textarea name="title" id="title" class="input-box textbox form-control" maxlength="100"
               placeholder="Too Many Cats">{{dream.title}}</textarea>
           </div>
           <div class="form-group">
-            <label for="tags" class="text-add">Tags/Themes</label>
+            <label for="tags" class="text-add"><strong>Tags/Themes</strong></label>
             <textarea name="tags" id="tags" class="input-box textbox form-control" maxlength="100"
               placeholder="howling, cats">{{dream.tags}}</textarea>
           </div>
           <div class="form-group">
-            <label for="description" class="text-add">Dream</label>
+            <label for="description" class="text-add"><strong>Dream</strong></label>
             <textarea name="description" id="description" class="input-box" rows="12"
               placeholder="Far away in the woods I heard...">{{dream.description}}</textarea>
           </div>

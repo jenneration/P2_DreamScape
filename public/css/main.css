@@ -7,7 +7,7 @@ font-family: 'Open Sans', sans-serif; */
 html,
 body {
   margin: 0;
-  height: 100%;
+  height: 100vh;
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
 }
@@ -221,9 +221,9 @@ width: 155px;
   display: table;
 }
 
-.scroll-bg {
+/* .scroll-bg {
   padding: 10px 70px;
-}
+} */
 
 .bg-1 {
   background-image: url("../img/Slide11.jpg");
@@ -238,7 +238,7 @@ width: 155px;
 }
 
 .bg-4 {
-  background-image: url("../img/slide5.jpg");
+  background-image: url("../img/Slide5.jpg");
 }
 
 .bg-5 {
@@ -259,6 +259,8 @@ width: 155px;
 
 .read-body {
   resize: none;
+  border: none;
+  outline: none;
 }
 
 .btn-edit,
@@ -311,6 +313,11 @@ width: 155px;
   font-weight: 700;
 }
 
+#btn-update,
+#btn-add {
+  margin-bottom: 60px;
+}
+
 .btn:hover {
   background-color: rgb(254, 254, 160);
 }
@@ -327,7 +334,7 @@ width: 155px;
   text-align: center;
   height: 2.5rem;
   font-size: 1rem;
-  padding-top: 5px;
+  padding-top: 15px;
 }
 
 /* SEARCHBAR */
@@ -342,4 +349,21 @@ width: 155px;
 
 #update-alert {
   display: none;
+}
+
+
+/* media queries */
+
+@media only screen and (max-width: 768px) {
+[class*="col-"] {
+  width: 100%;
+}
+
+[row*="row"] {
+  height: 100vh;
+  overflow: scroll;
+-webkit-overflow-scrolling: touch; 
+
+
+
 }

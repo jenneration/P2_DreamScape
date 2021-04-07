@@ -7,11 +7,11 @@
     <div class="container">
       <div class="form-wrap page-wrap scroll-bg">
         <div class="row" id="myItems">
-          <div class="col-md-8 offset-md-2">
+          <div class="col-md-7 offset-md-3">
             <h1 class="h1-all">All Dreams</h1>
-
+            {{!-- Searchbar --}}
             <div class="col-sm-12 mb-3">
-              <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()"
+              <input type="text" id="myFilter" class="form-control pt-2 pb-2" onkeyup="myFunction()"
                 placeholder="Search dream titles...">
             </div>
 
@@ -22,7 +22,7 @@
                 <li id="tags" class="list-group-item"><strong>Tags: </strong><em>{{tags}}</em></li>
                 <li id="createdAt" class="list-group-item"><strong>Created on: </strong><em>{{createdAt}}</em></li>
               </ul>
-              <div>
+              <div class="d-flex justify-content-center">
                 <button type="button" data-dream="{{id}}" id="btn-read" class="btn text-all1">Read/Edit</button>
               </div>
             </div>
