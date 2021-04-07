@@ -68,39 +68,46 @@
             recdream = data.filter((object) => object.recdream);
             rectheme = data.filter((object) => object.rectheme);
 
-
-            console.log(lucid.length)
-
             frightened = data.reduce(function (n, object) {
-                return n + (object.mood == 'frightened');
+                return n + (object.mood === 'frightened');
             }, 0);
-            console.log(frightened);
+            console.log(frightened)
 
             happy = data.reduce(function (n, object) {
-                return n + (object.mood == 'happy');
+                return n + (object.mood === 'happy');
             }, 0);
-            console.log(happy);
+            console.log(happy)
 
             angry = data.reduce(function (n, object) {
-                return n + (object.mood == 'angry');
+                return n + (object.mood === 'angry');
             }, 0);
-            console.log(angry);
+            console.log(angry)
 
             neutral = data.reduce(function (n, object) {
-                return n + (object.mood == 'neutral');
+                return n + (object.mood === 'neutral');
             }, 0);
-            console.log(neutral);
+            console.log(neutral)
 
             anxious = data.reduce(function (n, object) {
-                return n + (object.mood == 'anxious');
+                return n + (object.mood === 'anxious');
             }, 0);
             console.log(anxious);
 
             sad = data.reduce(function (n, object) {
                 return n + (object.mood == 'sad');
             }, 0);
-            console.log(sad);
+            console.log(sad)
+            ////
 
+            mood = data.map((item) => {
+                arrmood.push(item.mood);
+                console.log(arrmood)
+            });
+
+            count = {};
+            arrmood.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
+            count = JSON.stringify(count);
+            console.log(count);
 
             ///////////////
 
@@ -112,14 +119,14 @@
                         label: "Population",
                         data: [
 
-                            (lucid.length / dreams.length) * 100,
-                            ((dreams.length - lucid.length) / dreams.length * 100),
+                            (lucid.length / dreams.length) * 100, ((dreams.length - lucid.length) / dreams.length * 100),
+
 
                         ],
-
+                        //backgroundColor: "green"
                         backgroundColor: [
                             "rgb(51, 174, 26)",
-                            "#474747",
+                            "#474747"
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -157,8 +164,6 @@
             });
             ///////
             let myChart2 = document.getElementById("myChart2").getContext("2d");
-
-
             let nightmares = new Chart(myChart2, {
                 type: "pie",  //bar, horizontal, pie, line, doughnut, radar, polar
                 data: {
@@ -166,12 +171,14 @@
                     datasets: [{
                         label: "Population",
                         data: [
-                            (nightmare.length / dreams.length * 100),
-                            ((dreams.length - nightmare.length) / dreams.length * 100)
+                            nightmare.length / dreams.length * 100,
+                            (dreams.length - nightmare.length) / dreams.length * 100,
+
                         ],
+                        //backgroundColor: "green"
                         backgroundColor: [
                             "rgb(51, 174, 26)",
-                            "#474747",
+                            "#474747"
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -184,13 +191,13 @@
                         display: true, //or false for other charts
                         text: "Nightmares",
                         fontSize: 25,
-                        fontColor: "#fff",
+                        fontColor: "#fff"
                     },
                     legend: {
                         display: false,
                         position: "right", //can change
                         labels: {
-                            fontColor: "#000",
+                            fontColor: "#000"
                         }
                     },
                     layout: {
@@ -218,7 +225,7 @@
                         label: "Population",
                         data: [
                             (recdream.length / dreams.length * 100),
-                            ((dreams.length - recdream.length) / dreams.length * 100)
+                            ((dreams.length - recdream.length) / dreams.length * 100),
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
@@ -278,6 +285,7 @@
                             (sad / dreams.length) * 100,
 
                         ],
+                        //backgroundColor: "green"
                         backgroundColor: [
                             "#FFDF46", //fright
                             "#FFCFF1",
@@ -322,7 +330,15 @@
                 }
 
             });
+
+
+
         });
+
+    //*****Global Options
+    //Chart.defaults.global.defaultFontFamily = "",
+    //Chart.defaults.global.defaultFontSize = "",
+    //Chart.defaults.global.defaultFontColor = "",
 
 
 </script>

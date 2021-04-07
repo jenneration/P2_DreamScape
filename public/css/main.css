@@ -207,9 +207,9 @@ width: 155px;
   width: 100vw;
 }
 
-.card.list-group {
+/* .card.list-group {
   border-color: #000;
-}
+} */
 
 .fixed-bg {
   background-attachment: fixed;
