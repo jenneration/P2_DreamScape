@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 
   // #5 UPDATE and redirect to read page
-
   const btnUpdate = document.querySelector("#btn-update");
 
   if (btnUpdate) {
@@ -122,31 +121,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
     });
   }
 
-  //FIX
-  // #5A Change display of "alert" on successful update
-  // function changeDisplay() {
-  //   document.getElementById('update-alert').style.display = 'block';
-  // }
-
-
-  // #6 DELETE - WORKS
-  // const deleteBtn = document.querySelector("#btn-delete");
-
-  // const deleteDream = (id) => {
-  //   fetch(`/api/dreams/${id}`, {
-  //     method: "DELETE",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   }).then(() => console.log("DELETED"));
-  // };
-
-  // deleteBtn.addEventListener("click", (e) => {
-  //   e.preventDefault();
-  //   console.log("CLICK")
-  //   let id = e.target.getAttribute("data-dream");
-  //   deleteDream(id);
-  // });
 
 
 });

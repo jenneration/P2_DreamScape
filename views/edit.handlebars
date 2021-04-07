@@ -31,31 +31,28 @@
 
             <h2 class="h2-add">Dream Stats</h2><span><em class="text-add1">This is optional</em></span>
             <select class="form-select" name="mood" id="mood" aria-label="Default select example" value={{dream.mood}}>
-              <option selected>Mood</option>
+              <option selected>Neutral</option>
               <option value="happy">Happy</option>
               <option value="sad">Sad</option>
-              <option value="neutral">Neutral</option>
+              {{!-- <option value="neutral">Neutral</option> --}}
               <option value="frightened">Frightened</option>
               <option value="angry">Angry</option>
               <option value="anxious">Anxious/Stressed</option>
             </select>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="lucid" value="true" id="lucid" checked={{dream.lucid}}>
+              <input class="form-check-input" type="radio" name="lucid" value="true" id="lucid">
               <label class="form-check-label text-add" for="flexRadioDefault1">Lucid Dream?</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="nightmare" value="true" id="nightmare"
-                checked={{dream.nightmare}}>
+              <input class="form-check-input" type="radio" name="nightmare" value="true" id="nightmare">
               <label class="form-check-label text-add" for="flexRadioDefault1">Nightmare?</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="recdream" value="true" id="recdream"
-                checked={{dream.recdream}}>
+              <input class="form-check-input" type="radio" name="recdream" value="true" id="recdream">
               <label class="form-check-label text-add" for="flexRadioDefault1">Recurring dream?</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="rectheme" value="true" id="rectheme"
-                checked={{dream.rectheme}}>
+              <input class="form-check-input" type="radio" name="rectheme" value="true" id="rectheme">
               <label class="form-check-label text-add" for="flexRadioDefault1">Recurring Theme?</label>
             </div>
             <button type="submit" value="update" id="btn-update" class="btn text-add1"
@@ -74,6 +71,3 @@
 <div class="footer">
   <p>copyright 2021 DREAMSCAPE, jenner garcia</p>
 </div>
-
-
-<script src="/js/form.js"></script>

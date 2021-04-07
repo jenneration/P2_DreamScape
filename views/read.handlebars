@@ -9,57 +9,44 @@
                 <div class="col-md-9 col-read">
                     <div class="text-center">
                         <h1 id="title">{{dream.title}}</h1>
+                        <hr>
                     </div>
                     <div class="btn-read text-center">
                         <button type="button btnd" data-dream="{{dream.id}}" id="btn-edit"
-                            class="btn text-add1">Edit</button>
-                        {{!-- <button type="button" data-dream="{{dream.id}}" id="btn-delete"
-                            class="btn text-add2">Delete</button> --}}
+                            class="btn text-all1">Edit</button>
 
-                        {{!-- FIX --}}
                         <button type="submit button btnd" value="delete" data-dream="{{dream.id}}" id="btn-delete"
                             class="btn text-add2">Delete</button>
                     </div>
                     <br>
-
-
-
                     {{!-- FINISH THIS!!!! --}}
-
-                    <div{{#unless dream.updated}} style="display:none" id="update-alert" class="alert alert-primary"
-                        role="alert">
-                        Dream Updated!
+                    <div>
+                        {{#unless updated}}
+                        <div id="update-alert" class="alert alert-primary" role="alert">
+                            Dream Updated!
+                        </div>
                         {{/unless}}
-                </div>
 
-
-
-                {{!-- <div {{#unless dream.updated}} style="display: none" {{/unless}} id="update-alert"
-                    class="alert alert-primary" role="alert">
-                    Dream Updated!
-                </div> --}}
-
-
-
-                <hr>
-                <div class="dream-info text-center">
-                    <p id="createdAt" class="read-group"><strong>Date Recorded: </strong>{{dream.createdAt}}</p>
+                    </div>
                     <hr>
-                </div>
-                <div class="read-tags text-center">
-                    <p id="tags" class="read-group"><strong>Tags/Themes: </strong>{{dream.tags}}</p>
-                </div>
-                <hr>
-                <br>
-                <br>
-                <div class="read-text">
-                    <textarea id="description" class="read-body border-0 readonly"
-                        rows="13">{{dream.description}}</textarea>
+                    <div class="dream-info text-center">
+                        <p id="createdAt" class="read-group"><strong>Date Recorded: </strong>{{dream.createdAt}}</p>
+                        <hr>
+                    </div>
+                    <div class="read-tags text-center">
+                        <p id="tags" class="read-group"><strong>Tags/Themes: </strong>{{dream.tags}}</p>
+                    </div>
+                    <hr>
+                    <br>
+                    <br>
+                    <div class="read-text">
+                        <textarea id="description" class="read-body border-0 readonly"
+                            rows="13">{{dream.description}}</textarea>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <div class="footer">

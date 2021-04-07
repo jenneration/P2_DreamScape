@@ -10,23 +10,6 @@ router.get("/read", (req, res) => res.render("read"));
 router.get("/", (req, res) => res.render("landing"));
 
 let updated = false;
-//ADD NEW DREAM
-// router.put("/api/dreams/:id", (req, res) => {
-//   console.log(req.body);
-//   db.Dreams.update(req.body, {
-//     where: {
-//       id: req.params.id,
-//     }
-//   })
-//     .then((data) => {
-//       const updateddream = data.dataValues
-//       console.log(updateddream)
-//       console.log("#5 Update Dream Works!");
-//       res.redirect("/all")
-//     })
-//     .catch(error => console.log(error));
-// })
-
 
 // ORIGINAL STATE
 router.get("/api/dreams/dash", (req, res) => {
@@ -48,12 +31,7 @@ router.get("/api/dreams/dash", (req, res) => {
 });
 
 
-
-
-
-
 //////////////////////////////////////////////
-
 
 
 // #1 VIEW ALL dreams AFTER CREATED or NAV - OK

@@ -4,13 +4,13 @@
 
 <div class="wrapper-all">
     <div class="fixed-bg bg-5">
-        <div class="container-md" id="dash">
+        <div class="container-lg" id="dash">
             <div class="page-wrap scroll-bg">
                 <div class="row dash-123 justify-content-center">
                     <div class="dash-header">
                         <h1 class="h1-all">DREAM DASHBOARD</h1>
                     </div>
-                    <div class=" col-sm col-md-4">
+                    <div class="col-sm-8 col-md-4">
                         <canvas id="myChart"></canvas>
                     </div>
 
@@ -21,8 +21,10 @@
                     <div class="col-sm col-md-4">
                         <canvas id="myChart3"></canvas>
                     </div>
+                </div>
 
-                    <div class="row dash-4">
+                <div class="row dash-4 justify-content-center">
+                    <div class="col-sm-12 col-md-8">
                         <canvas id="myChart4"></canvas>
                     </div>
                 </div>
@@ -30,14 +32,6 @@
         </div>
     </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 
 <div class="footer">
     <p>copyright 2021 DREAMSCAPE, jenner garcia</p>
@@ -74,30 +68,28 @@
             recdream = data.filter((object) => object.recdream);
             rectheme = data.filter((object) => object.rectheme);
 
-            //neutral = data.reduce(function (n, object) {
-            //console.log(neutral)
-            //return n + (object.mood == 'neutral');
-            // }, 0);
+
+            console.log(lucid.length)
 
             frightened = data.reduce(function (n, object) {
                 return n + (object.mood == 'frightened');
             }, 0);
-            console.log(frightened)
+            console.log(frightened);
 
             happy = data.reduce(function (n, object) {
                 return n + (object.mood == 'happy');
             }, 0);
-            console.log(happy)
+            console.log(happy);
 
             angry = data.reduce(function (n, object) {
                 return n + (object.mood == 'angry');
             }, 0);
-            console.log(angry)
+            console.log(angry);
 
             neutral = data.reduce(function (n, object) {
                 return n + (object.mood == 'neutral');
             }, 0);
-            console.log(neutral)
+            console.log(neutral);
 
             anxious = data.reduce(function (n, object) {
                 return n + (object.mood == 'anxious');
@@ -107,18 +99,8 @@
             sad = data.reduce(function (n, object) {
                 return n + (object.mood == 'sad');
             }, 0);
-            console.log(sad)
+            console.log(sad);
 
-
-            // mood = data.map((item) => {
-            //      arrmood.push(item.mood);
-            //console.log(arrmood)
-            //  // });
-
-            //count = {};
-            //arrmood.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
-            ////count = JSON.stringify(count);
-            //console.log(count);
 
             ///////////////
 
@@ -130,13 +112,14 @@
                         label: "Population",
                         data: [
 
-                            (lucid.length / dreams.length) * 100, ((dreams.length - lucid.length) / dreams.length * 100),
+                            (lucid.length / dreams.length) * 100,
+                            ((dreams.length - lucid.length) / dreams.length * 100),
 
                         ],
-                        //backgroundColor: "green"
+
                         backgroundColor: [
                             "rgb(51, 174, 26)",
-                            "#474747"
+                            "#474747",
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -183,12 +166,12 @@
                     datasets: [{
                         label: "Population",
                         data: [
-                            (nightmare.length / dreams.length * 100), ((dreams.length - nightmare.length) / dreams.length * 100)
+                            (nightmare.length / dreams.length * 100),
+                            ((dreams.length - nightmare.length) / dreams.length * 100)
                         ],
-                        //backgroundColor: "green"
                         backgroundColor: [
                             "rgb(51, 174, 26)",
-                            "#474747"
+                            "#474747",
                         ],
                         borderWidth: 3,
                         borderColor: "#777",
@@ -201,13 +184,13 @@
                         display: true, //or false for other charts
                         text: "Nightmares",
                         fontSize: 25,
-                        fontColor: "#fff"
+                        fontColor: "#fff",
                     },
                     legend: {
                         display: false,
                         position: "right", //can change
                         labels: {
-                            fontColor: "#000"
+                            fontColor: "#000",
                         }
                     },
                     layout: {
@@ -234,7 +217,8 @@
                     datasets: [{
                         label: "Population",
                         data: [
-                            (recdream.length / dreams.length * 100), ((dreams.length - recdream.length) / dreams.length * 100)
+                            (recdream.length / dreams.length * 100),
+                            ((dreams.length - recdream.length) / dreams.length * 100)
                         ],
                         //backgroundColor: "green"
                         backgroundColor: [
@@ -294,14 +278,13 @@
                             (sad / dreams.length) * 100,
 
                         ],
-                        //backgroundColor: "green"
                         backgroundColor: [
-                            "rgb(254, 254, 160)",
-                            "#fdd7E4",
-                            "#ff000",
-                            "#d2b48c",
-                            "#0009AB",
-                            "#89cff0",
+                            "#FFDF46", //fright
+                            "#FFCFF1",
+                            "#ED0A3F", //angry
+                            "#FFE4CD",
+                            "#6F2DA8", //anxious
+                            "#4BC7CF", //sad
 
 
                         ],
@@ -315,21 +298,22 @@
                     title: {
                         display: true, //or false for other charts
                         text: "Dream Moods",
-                        fontSize: 25
+                        fontSize: 25,
+                        fontColor: "#fff"
                     },
                     legend: {
                         display: false,
-                        position: "right", //can change
+                        position: "bottom", //can change
                         labels: {
-                            fontColor: "#000"
+                            fontColor: "#fff"
                         }
                     },
                     layout: {
                         padding: {
                             left: 50,
                             right: 0,
-                            bottom: 0,
-                            top: 0
+                            bottom: 20,
+                            top: 20
                         }
                     },
                     tooltips: {
@@ -338,15 +322,7 @@
                 }
 
             });
-
-
-
         });
-
-    //*****Global Options
-    //Chart.defaults.global.defaultFontFamily = "",
-    //Chart.defaults.global.defaultFontSize = "",
-    //Chart.defaults.global.defaultFontColor = "",
 
 
 </script>

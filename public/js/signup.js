@@ -39,7 +39,7 @@ $(document).ready(function () {
 
   function handleLoginErr(err) {
     // $("#alert .msg").text(err.responseJSON);
-    $("#alert .msg").text("Try LOGIN, you already have an account");
+    $("#alert .msg").text("Oops. Try again?");
     $("#alert").fadeIn(500);
   }
 });

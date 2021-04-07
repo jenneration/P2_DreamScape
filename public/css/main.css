@@ -129,7 +129,8 @@ width: 155px;
 .text-add {
   color: rgb(254, 254, 160)
 }
-.btn.text-all1 {
+.btn.text-all1
+ {
   background-color: #000; 
   color: #fff;
 }
@@ -165,9 +166,9 @@ width: 155px;
   background: #fff;
 }
 
-.form-check-input:checked[type=radio] {
+/* .form-check-input:checked[type=radio] {
   background-image: none;
-}
+} */
 
 
 .form-check-input:checked {
@@ -190,9 +191,6 @@ width: 155px;
   text-align: center;
 }
 
-.row.dash-123 {
-
-}
 
 .row.dash-4 {
   padding-top: 60px;
@@ -202,7 +200,6 @@ width: 155px;
 .wrapper-all {
   height: 100vh;
   width: 100vw;
-  /* position: fixed; */
 }
 
 .wrapper-all-all {
@@ -250,15 +247,12 @@ width: 155px;
 
 .card-jg {
   padding: 1rem;
-  /* margin-bottom: 1rem; */
   box-shadow: #000, 1px;
 }
 
 /* READ PAGE */
 .read-group,
 .read-body {
-  /* border: 1px solid lightgray; */
-  /* padding-top: 1.5rem; */
   margin-bottom: 1.5rem;
   width: 100%;
 }
@@ -279,13 +273,6 @@ width: 155px;
   height: 55px;
 }
 
-/* FORMS */
-/* .form-wrap {
-  margin-top: 1rem;
-  display: block;
-  width: 100%;
-} */
-
 /* ADD AND EDIT INPUTS */
 .input-box {
   padding: 0.75rem;
@@ -294,13 +281,6 @@ width: 155px;
   margin-bottom: 1.2rem;
   border: 1px solid darkgrey;
   display: inline-block;
-  /* width:20%; */
-  /* margin:5% auto; */
-  /* border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; */
-  /* line-height:1.5em; */
-  /* background:hsla(67, 95%, 95%, 1); */
-  /* border:solid 2px rgb(165, 26, 26); */
-  /* border:dotted 2px rgb(113, 113, 113) */
 }
 
 ::placeholder {
@@ -348,4 +328,18 @@ width: 155px;
   height: 2.5rem;
   font-size: 1rem;
   padding-top: 5px;
+}
+
+/* SEARCHBAR */
+
+#the-list {
+  list-style: none;
+}
+
+#myFilter {
+  background-color: rgb(254, 254, 160);
+}
+
+#update-alert {
+  display: none;
 }

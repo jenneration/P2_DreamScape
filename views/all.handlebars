@@ -6,18 +6,21 @@
   <div class="fixed-bg bg-1">
     <div class="container">
       <div class="form-wrap page-wrap scroll-bg">
-        <div class="row ">
+        <div class="row" id="myItems">
           <div class="col-md-8 offset-md-2">
             <h1 class="h1-all">All Dreams</h1>
+
+            <div class="col-sm-12 mb-3">
+              <input type="text" id="myFilter" class="form-control" onkeyup="myFunction()"
+                placeholder="Search dream titles...">
+            </div>
+
             {{#each dreams}}
-            <div class="card border-secondary card-jg shadow p-3 mb-3 bg-body rounded" id="all-card"
-              data-dream="{{id}}">
-              <div class="card-body">
-                <h5 id="title" class="card-title">Dream: {{title}}</h5>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li id="tags" class="list-group-item">Tags: {{tags}}</li>
-                <li id="createdAt" class="list-group-item">Created on: {{createdAt}}</li>
+            <div class="card border-secondary card-jg mb-3" id="the-list" data-dream="{{id}}">
+              <ul class="list-group list-group-flush" id="the-list">
+                <li id="title" class="card-title"><strong>Dream: </strong><em>{{title}}</em></li>
+                <li id="tags" class="list-group-item"><strong>Tags: </strong><em>{{tags}}</em></li>
+                <li id="createdAt" class="list-group-item"><strong>Created on: </strong><em>{{createdAt}}</em></li>
               </ul>
               <div>
                 <button type="button" data-dream="{{id}}" id="btn-read" class="btn text-all1">Read/Edit</button>
@@ -31,8 +34,7 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="footer">
-  <p>copyright 2021 DREAMSCAPE, jenner garcia</p>
-</div>
+  <script src="/js/search.js" <div class="footer">
+    <p>copyright 2021 DREAMSCAPE, jenner garcia</p>
+</div >
