@@ -234,7 +234,7 @@ width: 155px;
 }
 
 .bg-3 {
-  background-image: url("../img/slide8.jpg");
+  background-image: url("../img/Slide8.jpg");
 }
 
 .bg-4 {
@@ -242,7 +242,7 @@ width: 155px;
 }
 
 .bg-5 {
-  background-image: url("../img/slide11.jpg");
+  background-image: url("../img/Slide11.jpg");
 }
 
 .card-jg {
@@ -364,6 +364,5 @@ width: 155px;
   overflow: scroll;
 -webkit-overflow-scrolling: touch; 
 
-
-
+}
 }
