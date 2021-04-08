@@ -8,18 +8,15 @@ router.get("/add", (req, res) => res.render("add"));
 router.get("/edit", (req, res) => res.render("edit"));
 router.get("/read", (req, res) => res.render("read"));
 router.get("/", (req, res) => res.render("landing"));
-router.get("*", (req, res) => res.render("landing"));
 
 
+// router.get("*", (req, res) => res.render("landing"));
 
-router.get('*', authController.isLoggedIn, (req, res) => {
-  res.render('index', {
-    user: req.user
-  });
-})
-
-
-
+// router.get('*', authController.isLoggedIn, (req, res) => {
+//   res.render('index', {
+//     user: req.user
+//   });
+// })
 
 let updated = false;
 
