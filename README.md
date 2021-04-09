@@ -1,8 +1,9 @@
 # Project2-DreamScape
 A place for dreams
 
+Visit Site at "https://fathomless-woodland-79338.herokuapp.com/"
 
-Site login:
+To Test: Sign in with the user and pw below for a populated site to test.
 EMAIL:  Ozzy@gmail.com
 PASSWORD:  password
 

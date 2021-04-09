@@ -80,6 +80,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
           "Content-Type": "application/json",
         },
       }).then(() => console.log("DELETED"));
+      // TRY TO SEND ALERT
+      window.location.href = `/api/dreams`;
     };
 
     deleteBtn.addEventListener("click", (e) => {
