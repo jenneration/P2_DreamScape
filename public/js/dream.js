@@ -81,7 +81,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
         },
       }).then(() => console.log("DELETED"));
       // TRY TO SEND ALERT
-      window.location.href = `/api/dreams`;
+      // window.location.href = `/api/dreams`;
+      window.location = document.referrer;
     };
 
     deleteBtn.addEventListener("click", (e) => {
@@ -106,8 +107,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
         },
         body: JSON.stringify(currentDream),
       }).then((response) => console.log(response));
-      window.location.href = `/api/read/${id}`;
-
+      // window.location.href = `/api/read/${id}`;
+      window.location = document.referrer;
+      //TRY AS FIX FOR HEROKU NO REFRESHING WITH UPDATED DREAM
     };
 
     btnUpdate.addEventListener("click", (e) => {
